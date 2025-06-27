@@ -40,6 +40,7 @@
 <!-- TODO
 - Show counter on the top bar of how many characters we've done out of how many total characters in the pool.
 - Once character is shown, remove it from the pool until all characters have been shown, then reset.
+- Add dropdown for what voice to use or to rotate.
 -->
 
 <!DOCTYPE html>
@@ -293,12 +294,22 @@
 
         <div id="app" class="hidden">
             <div class="stats">
-                <span>Day: <span id="currentDay">1</span></span>
+                <div>
+                    <label>
+                        Start Date: <input type="date" id="startDate" value="2025-06-25" />
+                    </label>
+                    <span>Day: <span id="currentDay">1</span></span>
+                </div>
                 <label>
                     <input id="audioEnabled" type="checkbox" checked="true">
                     Audio
                 </label>
-                <span>Pool: <span id="poolSize">5</span> characters</span>
+                <div>
+                    <span>Pool: <span id="poolSize">5</span> characters</span>
+                    <select id="charactersInPool">
+                        <option value="" selected></option>
+                    </select>
+                </div>
             </div>
 
             <div class="progress-bar">
@@ -357,8 +368,8 @@
                 this.currentPool = [];
                 this.currentCharacter = null;
                 this.correctPinyin = '';
-                this.startDate = new Date('2025-01-01'); // Hard-coded start date
-                this.audioButton = document.querySelector("#audioEnabled");
+                this.startDate = new Date(document.querySelector('#startDate').value);
+                this.audioButton = document.querySelector('#audioEnabled');
                 this.speechSynthesis = window.speechSynthesis;
                 this.currentSpeechTimeout = null;
                 this.hanziWriters = [];
@@ -556,6 +567,14 @@
 
                 document.getElementById('currentDay').textContent = daysDiff + 1;
                 document.getElementById('poolSize').textContent = poolSize;
+
+                const select = document.querySelector('#charactersInPool');
+                this.currentPool.forEach(character => {
+                    const option = document.createElement('option');
+                    option.textContent = character;
+                    option.disabled = true;
+                    select.appendChild(option);
+                });
             }
 
             setupEventListeners() {
