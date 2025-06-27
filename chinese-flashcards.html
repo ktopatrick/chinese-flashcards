@@ -40,7 +40,6 @@
 <!-- TODO
 - Show counter on the top bar of how many characters we've done out of how many total characters in the pool.
 - Once character is shown, remove it from the pool until all characters have been shown, then reset.
-- Add dropdown for what voice to use or to rotate.
 -->
 
 <!DOCTYPE html>
@@ -304,12 +303,11 @@
                     Audio
                     <input id="audioEnabled" type="checkbox" checked="true">
                     Voice
-                    <select id="voiceSelect">
-                        <option value="Rotate" selected>Rotate</option>
+                    <select id="voiceSelector">
                     </select>
                 </label>
                 <div>
-                    <span>Pool: <span id="poolSize">5</span></span>
+                    <span>Pool: <span id="characterCount">1</span>/<span id="poolSize">5</span> (<span id="totalCount">1</span>)</span>
                     <select id="charactersInPool">
                         <option value="" selected></option>
                     </select>
@@ -369,7 +367,9 @@
             constructor() {
                 this.charactersData = {};
                 this.allPinyinOptions = [];
+                this.pool = [];
                 this.currentPool = [];
+                this.currentRound = [];
                 this.currentCharacter = null;
                 this.correctPinyin = '';
                 this.audioButton = document.querySelector('#audioEnabled');
@@ -386,6 +386,7 @@
                     await this.loadCharacters();
                     await this.processCharacters();
                     this.setupEventListeners();
+                    this.setupSpeechOptions();
                     this.start();
                     this.hideLoading();
                 } catch (error) {
@@ -411,65 +412,65 @@
                 // Use built-in demo data
                 this.charactersData = {
                     "你": [
-                            {"simplified": "你好", "english": "hello"},
-                            {"simplified": "你们", "english": "you (plural)"}
-                        ],
+                        {"simplified": "你好", "english": "hello"},
+                        {"simplified": "你们", "english": "you (plural)"}
+                    ],
                     "好": [
-                            {"simplified": "你好", "english": "hello"},
-                            {"simplified": "很好", "english": "very good"}
-                        ],
+                        {"simplified": "你好", "english": "hello"},
+                        {"simplified": "很好", "english": "very good"}
+                    ],
                     "我": [
-                            {"simplified": "我是", "english": "I am"},
-                            {"simplified": "我们", "english": "we"}
-                        ],
+                        {"simplified": "我是", "english": "I am"},
+                        {"simplified": "我们", "english": "we"}
+                    ],
                     "是": [
-                            {"simplified": "我是", "english": "I am"},
-                            {"simplified": "是的", "english": "yes"}
-                        ],
+                        {"simplified": "我是", "english": "I am"},
+                        {"simplified": "是的", "english": "yes"}
+                    ],
                     "的": [
-                            {"simplified": "我的", "english": "my/mine"},
-                            {"simplified": "是的", "english": "yes"}
-                        ],
+                        {"simplified": "我的", "english": "my/mine"},
+                        {"simplified": "是的", "english": "yes"}
+                    ],
                     "有": [
-                            {"simplified": "有人", "english": "someone"},
-                            {"simplified": "没有", "english": "don't have"}
-                        ],
+                        {"simplified": "有人", "english": "someone"},
+                        {"simplified": "没有", "english": "don't have"}
+                    ],
                     "人": [
-                            {"simplified": "有人", "english": "someone"},
-                            {"simplified": "中国人", "english": "Chinese person"}
-                        ],
+                        {"simplified": "有人", "english": "someone"},
+                        {"simplified": "中国人", "english": "Chinese person"}
+                    ],
                     "中": [
-                            {"simplified": "中国", "english": "China"},
-                            {"simplified": "中国人", "english": "Chinese person"}
-                        ],
+                        {"simplified": "中国", "english": "China"},
+                        {"simplified": "中国人", "english": "Chinese person"}
+                    ],
                     "国": [
-                            {"simplified": "中国", "english": "China"},
-                            {"simplified": "美国", "english": "America"}
-                        ],
+                        {"simplified": "中国", "english": "China"},
+                        {"simplified": "美国", "english": "America"}
+                    ],
                     "很": [
-                            {"simplified": "很好", "english": "very good"},
-                            {"simplified": "很多", "english": "very many"}
-                        ],
+                        {"simplified": "很好", "english": "very good"},
+                        {"simplified": "很多", "english": "very many"}
+                    ],
                     "来": [
-                            {"simplified": "来了", "english": "came/coming"},
-                            {"simplified": "过来", "english": "come over"}
-                        ],
+                        {"simplified": "来了", "english": "came/coming"},
+                        {"simplified": "过来", "english": "come over"}
+                    ],
                     "去": [
-                            {"simplified": "去了", "english": "went/going"},
-                            {"simplified": "回去", "english": "go back"}
-                        ],
+                        {"simplified": "去了", "english": "went/going"},
+                        {"simplified": "回去", "english": "go back"}
+                    ],
                     "在": [
-                            {"simplified": "在家", "english": "at home"},
-                            {"simplified": "现在", "english": "now"}
-                        ],
+                        {"simplified": "在家", "english": "at home"},
+                        {"simplified": "现在", "english": "now"}
+                    ],
                     "了": [
-                            {"simplified": "好了", "english": "finished/done"},
-                            {"simplified": "来了", "english": "came/coming"}
-                        ],
+                        {"simplified": "好了", "english": "finished/done"},
+                        {"simplified": "来了", "english": "came/coming"}
+                    ],
                     "不": [
-                            {"simplified": "不好", "english": "not good"},
-                            {"simplified": "不是", "english": "is not"}
-                        ]
+                        {"simplified": "不好", "english": "not good"},
+                        {"simplified": "不是", "english": "is not"}
+                    ]
                 };
                 console.log('Using built-in demo data');
             }
@@ -561,6 +562,7 @@
             }
 
             start() {
+                this.roundCount = 1;
                 this.updatePoolSize();
                 this.startNewRound();
             }
@@ -570,13 +572,13 @@
                 const daysDiff = Math.floor((currentDate - new Date(document.querySelector('#startDate').value)) / (1000 * 60 * 60 * 24));
                 const poolSize = Math.min(5 + (daysDiff * 2), Object.keys(this.charactersData).length);
 
-                this.currentPool = Object.keys(this.charactersData).slice(0, poolSize);
+                this.pool = Object.keys(this.charactersData).slice(0, poolSize);
 
                 document.getElementById('currentDay').textContent = daysDiff + 1;
                 document.getElementById('poolSize').textContent = poolSize;
 
                 const select = document.querySelector('#charactersInPool');
-                this.currentPool.forEach(character => {
+                this.pool.forEach(character => {
                     const option = document.createElement('option');
                     option.textContent = character;
                     option.disabled = true;
@@ -585,6 +587,8 @@
             }
 
             setupEventListeners() {
+                this.speechSynthesis.addEventListener("voiceschanged", () => { console.log('TODO: voiceschanged') });
+
                 const startDate = document.querySelector('#startDate');
                 startDate.addEventListener('change', () => this.start())
 
@@ -609,10 +613,18 @@
                 document.getElementById('phrasesSection').classList.add('hidden');
                 document.getElementById('optionsSection').classList.remove('hidden');
 
+                document.querySelector('#totalCount').textContent = this.roundCount;
+
+                if (this.currentPool.length == 0) {
+                    this.currentPool = [...this.pool];
+                }
+                document.querySelector('#characterCount').textContent = this.pool.length - this.currentPool.length + 1;
+
                 // Select random character from current pool
                 const randomIndex = Math.floor(Math.random() * this.currentPool.length);
                 this.currentCharacter = this.currentPool[randomIndex];
                 const charData = this.charactersData[this.currentCharacter];
+                this.currentPool.splice(randomIndex, 1);
 
                 this.correctPinyin = charData.pinyin;
 
@@ -631,6 +643,8 @@
                     option.classList.remove('correct', 'incorrect');
                     option.disabled = false;
                 });
+
+                this.roundCount++;
             }
 
             displayStaticCharacter(char, containerId) {
@@ -758,6 +772,34 @@
                 document.getElementById('phrasesSection').classList.remove('hidden');
             }
 
+            setupSpeechOptions() {
+                const voiceSelector = document.querySelector('#voiceSelector');
+                voiceSelector.replaceChildren();
+                const rotateOption = document.createElement('option');
+                rotateOption.textContent = 'Rotate';
+                rotateOption.value = 'rotate';
+                rotateOption.selected = true;
+                voiceSelector.appendChild(rotateOption);
+
+                if (this.speechSynthesis) {
+                    const voices = this.speechSynthesis.getVoices();
+                    // Use zh for taiwanese as well. zh-CN is only China.
+                    //this.voices = voices.filter(voice => v.lang.startsWith("zh") || v.name.toLowerCase().includes("chinese"));
+                    this.voices = voices.filter(voice => voice.lang.startsWith('zh-CN'));
+                    this.voices.forEach(voice => {
+                        const option = document.createElement('option');
+                        option.textContent = voice.name;
+                        //option.textContent = voice.name + '(' + voice.lang + ')';
+                        // if (voice.default) {
+                        //     option.textContent += " — DEFAULT";
+                        // }
+                        voiceSelector.appendChild(option);
+                    });
+                } else {
+                    // Add "No speech options" disabled
+                }
+            }
+
             startAudioLoop() {
                 if (this.audioButton.checked) {
                     this.stopSpeech();
@@ -770,11 +812,21 @@
                             const charData = this.charactersData[this.currentCharacter];
                             const phrase = charData[this.audioIteration % charData.length].simplified;
 
+                            const selectedVoice = document.querySelector('#voiceSelector').value;
+                            let voice = this.voices[this.audioIteration%this.voices.length]
+                            if (selectedVoice != 'Rotate') {
+                                // TODO: use the onchange event of the select to only loop through voices when changed.
+                                for (let v of this.voices) {
+                                    if (selectedVoice == v.name) {
+                                        voice = v;
+                                        break;
+                                    }
+                                }
+                            }
+
 //                            const utterance = new SpeechSynthesisUtterance(this.currentCharacter);
                             const utterance = new SpeechSynthesisUtterance(phrase);
-                            let voices = window.speechSynthesis.getVoices();
-                            voices = voices.filter(voice => voice.lang.startsWith('zh-CN'));
-                            utterance.voice = voices[this.audioIteration%voices.length]
+                            utterance.voice = voice;
                             utterance.lang = 'zh-CN';
                             utterance.rate = 0.5;
                             this.audioIteration++;
