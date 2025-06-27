@@ -37,11 +37,6 @@
 //     - characters will need to be copied/paste to google translate to get the traditional character.
 -->
 
-<!-- TODO
-- Show counter on the top bar of how many characters we've done out of how many total characters in the pool.
-- Once character is shown, remove it from the pool until all characters have been shown, then reset.
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -259,12 +254,18 @@
             transition: width 0.3s ease;
         }
 
-        .stats {
+        .menu {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             padding: 10px 20px;
             color: rgba(255, 255, 255, 0.9);
             font-size: 0.9rem;
+        }
+
+        .menu-item {
+            display: flex;
+            flex-direction: column;
         }
 
         .error-message {
@@ -292,22 +293,20 @@
         </div>
 
         <div id="app" class="hidden">
-            <div class="stats">
-                <div>
+            <div class="menu">
+                <div class="menu-item">
                     <label>
                         Start Date: <input type="date" id="startDate" value="2025-06-25" />
                     </label>
                     <span>Day: <span id="currentDay">1</span></span>
                 </div>
-                <label>
-                    Audio
-                    <input id="audioEnabled" type="checkbox" checked="true">
-                    Voice
-                    <select id="voiceSelector">
-                    </select>
-                </label>
-                <div>
-                    <span>Pool: <span id="characterCount">1</span>/<span id="poolSize">5</span> (<span id="totalCount">1</span>)</span>
+                <div class="menu-item">
+                    <div>Audio <input id="audioEnabled" type="checkbox" checked="true"></div>
+                    <div>Voice <select id="voiceSelector"></select></div>
+                </div>
+                <div class="menu-item">
+                    <span><span id="characterCount">1</span>/<span id="poolSize">5</span></span>
+                    <span id="totalCount">1</span>
                     <select id="charactersInPool">
                         <option value="" selected></option>
                     </select>
@@ -777,9 +776,9 @@
                 voiceSelector.replaceChildren();
                 const rotateOption = document.createElement('option');
                 rotateOption.textContent = 'Rotate';
-                rotateOption.value = 'rotate';
-                rotateOption.selected = true;
+                rotateOption.value = 'rotate';  // Not currently used.
                 voiceSelector.appendChild(rotateOption);
+                voiceSelector.value = rotateOption.textContent;
 
                 if (this.speechSynthesis) {
                     const voices = this.speechSynthesis.getVoices();
@@ -793,10 +792,16 @@
                         // if (voice.default) {
                         //     option.textContent += " — DEFAULT";
                         // }
+
                         voiceSelector.appendChild(option);
+                        // Tingting is the best one that I've heard so far, and it's on both Chrome on MacOS and
+                        // Safari on iOS.
+                        if (voice.name.includes('Tingting')) {
+                            voiceSelector.value = option.textContent;
+                        }
                     });
                 } else {
-                    // Add "No speech options" disabled
+                    // Add "No speech synthesis" option, disabled.
                 }
             }
 
