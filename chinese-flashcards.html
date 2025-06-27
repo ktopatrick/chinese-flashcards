@@ -1,0 +1,760 @@
+<!--
+// ChineseCharacter class:
+// - field: simplified chinese character
+// - field: traditional chinese character
+// - field: pinyin
+// - field: array of Phrases
+// - method: == operator compares simplified chinese character
+//
+// Phrases class:
+// - field: simplified chinese character phrase
+// - field: traditional chinese character phrase
+// - field: pinyin
+// - field: english translation
+
+// Main App:
+// - startDate = hard-coded date
+// - daysSinceStart = today - startDate
+// - characterPoolArray = first (5 + daysSinceStart*2) characters (first day has the first 5 characters, +2 characters per day)
+// Loop:
+// - Select a random ChineseCharacter and show the simplified and traditional character side-by-side as a big element.
+// - Select 4 additional random Chinese and show only the pinyin for the 5 characters as buttons
+// - Wait for user to select a pinyin.
+// - If incorrect, ask to try again.
+// - If correct, remove all pinyin buttons and show all the words/phrases that contain the character, the pinyin, and the english translation.
+
+// Show counter of how many done so far and how many correct (<corrected>/<total>)
+
+// For the Duolingo Hanzi page:
+// - Create a javascript function that for each character, automatically clicks the character then closes the popup modal.
+//     - Save each character into a map
+//         - key = character
+//         - value = array of phrases that include the character.
+// - Create a Python script that reads the resulting .har file and prints out
+//     - links to all audio files
+//     - every character, pinyin, phrases, and english translations that can be copied/pasted into Javascript to initialize as ChineseCharacter.
+//     - characters will need to be copied/paste to google translate to get the traditional character.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese Character Flashcards</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            max-width: 100vw;
+            width: 100%;
+        }
+        
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .character-section {
+            height: 25vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            margin: 10px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+        
+        .character-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 20px;
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+            padding: 20px;
+        }
+
+        .character-container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .character-label {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .character {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .character.static {
+            font-size: 48px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .options-section {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            overflow-y: auto;
+        }
+
+        .option-button {
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            min-height: 60px;
+        }
+
+        .option-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .option-button.correct {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .option-button.incorrect {
+            background: #f44336;
+            color: white;
+            animation: incorrectShake 0.6s ease;
+        }
+
+        @keyframes correctPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes incorrectShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .phrases-section {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            margin: 10px;
+            border-radius: 20px;
+            overflow-y: auto;
+        }
+
+        .phrases-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .phrase-item {
+            padding: 15px;
+            margin-bottom: 10px;
+            background: rgba(103, 126, 234, 0.1);
+            border-radius: 10px;
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #333;
+            border-left: 4px solid #667eea;
+        }
+
+        .phrase-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .continue-hint {
+            text-align: center;
+            padding: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            animation: fadeInOut 2s infinite;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            margin: 10px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50, #8BC34A);
+            transition: width 0.3s ease;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+        }
+
+        .error-message {
+            background: rgba(244, 67, 54, 0.9);
+            color: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="loading" class="loading">
+            Loading Chinese characters...
+        </div>
+
+        <div id="error" class="error-message hidden">
+            Error loading character data. Please ensure characters.json exists.
+        </div>
+
+        <div id="app" class="hidden">
+            <div class="stats">
+                <span>Day: <span id="currentDay">1</span></span>
+                <label>
+                    <input id="audioEnabled" type="checkbox" checked="true">
+                    Audio
+                </label>
+                <span>Pool: <span id="poolSize">5</span> characters</span>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+
+            <div class="character-section">
+                <div class="character-grid">
+                    <div class="character-container">
+                        <div class="character-label">Simplified</div>
+                        <div class="character static" id="simplifiedStatic"></div>
+                    </div>
+                    <div class="character-container">
+                        <div class="character-label">Traditional</div>
+                        <div class="character static" id="traditionalStatic"></div>
+                    </div>
+                    <div class="character-container">
+                        <div class="character" id="simplifiedStrokes"></div>
+                    </div>
+                    <div class="character-container">
+                        <div class="character" id="traditionalStrokes"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="optionsSection" class="options-section">
+                <button class="option-button" id="option1"></button>
+                <button class="option-button" id="option2"></button>
+                <button class="option-button" id="option3"></button>
+                <button class="option-button" id="option4"></button>
+            </div>
+
+            <div id="phrasesSection" class="phrases-section hidden">
+                <div class="phrases-title">Phrases containing this character:</div>
+                <div id="phrasesList"></div>
+                <div class="continue-hint">Tap anywhere to continue</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- External Libraries -->
+    <script src="lib/full.js"></script>
+    <script src="lib/hanzi-writer.js"></script>
+    <script src="lib/index.js"></script>
+
+    <!-- Optional: Include your character data here -->
+    <!-- <script src="characters.js"></script> -->
+
+    <script>
+        class ChineseFlashcardApp {
+            constructor() {
+                this.charactersData = {};
+                this.allPinyinOptions = [];
+                this.currentPool = [];
+                this.currentCharacter = null;
+                this.correctPinyin = '';
+                this.startDate = new Date('2025-01-01'); // Hard-coded start date
+                this.audioButton = document.querySelector("#audioEnabled");
+                this.speechSynthesis = window.speechSynthesis;
+                this.currentSpeechTimeout = null;
+                this.hanziWriters = [];
+                this.isShowingPhrases = false;
+
+                this.init();
+            }
+
+            async init() {
+                try {
+                    await this.loadCharacters();
+                    await this.processCharacters();
+                    this.setupEventListeners();
+                    this.updatePoolSize();
+                    this.startNewRound();
+                    this.hideLoading();
+                } catch (error) {
+                    console.error('Initialization failed:', error);
+                    this.showError();
+                }
+            }
+
+            async loadCharacters() {
+                // Try to load from JSON file first, but use fallback data for demo
+                try {
+                    const response = await fetch('characters.json');
+                    if (response.ok) {
+                        this.charactersData = await response.json();
+                        console.log('Loaded characters from characters.json');
+                        return;
+                    }
+                } catch (error) {
+                    console.log(error);
+                    console.log('characters.json not found, using demo data');
+                }
+
+                // Use built-in demo data
+                this.charactersData = {
+                    "你": [
+                            {"simplified": "你好", "english": "hello"},
+                            {"simplified": "你们", "english": "you (plural)"}
+                        ],
+                    "好": [
+                            {"simplified": "你好", "english": "hello"},
+                            {"simplified": "很好", "english": "very good"}
+                        ],
+                    "我": [
+                            {"simplified": "我是", "english": "I am"},
+                            {"simplified": "我们", "english": "we"}
+                        ],
+                    "是": [
+                            {"simplified": "我是", "english": "I am"},
+                            {"simplified": "是的", "english": "yes"}
+                        ],
+                    "的": [
+                            {"simplified": "我的", "english": "my/mine"},
+                            {"simplified": "是的", "english": "yes"}
+                        ],
+                    "有": [
+                            {"simplified": "有人", "english": "someone"},
+                            {"simplified": "没有", "english": "don't have"}
+                        ],
+                    "人": [
+                            {"simplified": "有人", "english": "someone"},
+                            {"simplified": "中国人", "english": "Chinese person"}
+                        ],
+                    "中": [
+                            {"simplified": "中国", "english": "China"},
+                            {"simplified": "中国人", "english": "Chinese person"}
+                        ],
+                    "国": [
+                            {"simplified": "中国", "english": "China"},
+                            {"simplified": "美国", "english": "America"}
+                        ],
+                    "很": [
+                            {"simplified": "很好", "english": "very good"},
+                            {"simplified": "很多", "english": "very many"}
+                        ],
+                    "来": [
+                            {"simplified": "来了", "english": "came/coming"},
+                            {"simplified": "过来", "english": "come over"}
+                        ],
+                    "去": [
+                            {"simplified": "去了", "english": "went/going"},
+                            {"simplified": "回去", "english": "go back"}
+                        ],
+                    "在": [
+                            {"simplified": "在家", "english": "at home"},
+                            {"simplified": "现在", "english": "now"}
+                        ],
+                    "了": [
+                            {"simplified": "好了", "english": "finished/done"},
+                            {"simplified": "来了", "english": "came/coming"}
+                        ],
+                    "不": [
+                            {"simplified": "不好", "english": "not good"},
+                            {"simplified": "不是", "english": "is not"}
+                        ]
+                };
+                console.log('Using built-in demo data');
+            }
+
+            async processCharacters() {
+                // Initialize OpenCC converter (if available)
+                let opencc = null;
+                try {
+                    if (typeof OpenCC !== 'undefined') {
+                        opencc = OpenCC.Converter({ from: 'cn', to: 'tw' });
+                    }
+                } catch (error) {
+                    console.log('OpenCC not available, using fallback traditional characters');
+                }
+
+                for (const [char, data] of Object.entries(this.charactersData)) {
+                    try {
+                        // Convert to traditional using OpenCC or fallback
+                        if (opencc) {
+                            data.traditional = await opencc(char);
+                        } else {
+                            // Fallback traditional characters mapping
+                            const traditionalMap = {
+                                '你': '你', '好': '好', '我': '我', '是': '是',
+                                '的': '的', '有': '有', '人': '人', '中': '中',
+                                '国': '國', '很': '很'
+                            };
+                            data.traditional = traditionalMap[char] || char;
+                        }
+
+                        // Convert to pinyin using PinyinPro or fallback
+                        if (typeof PinyinPro !== 'undefined') {
+                            data.pinyin = PinyinPro.pinyin(char, { toneType: 'symbol', type: 'array' })[0];
+                        } else {
+                            // Fallback pinyin for demo
+                            const pinyinMap = {
+                                '你': 'nǐ', '好': 'hǎo', '我': 'wǒ', '是': 'shì',
+                                '的': 'de', '有': 'yǒu', '人': 'rén', '中': 'zhōng',
+                                '国': 'guó', '很': 'hěn', '来': 'lái', '去': 'qù',
+                                '在': 'zài', '了': 'le', '不': 'bù'
+                            };
+                            data.pinyin = pinyinMap[char] || 'unknown';
+                        }
+
+                        // Process phrases
+                        for (const phrase of data) {
+                            if (opencc) {
+                                phrase.traditional = await opencc(phrase.simplified);
+                            } else {
+                                // Fallback for demo phrases
+                                const phraseTradMap = {
+                                    '你好': '你好', '你们': '你們', '很好': '很好',
+                                    '我是': '我是', '我们': '我們', '是的': '是的',
+                                    '我的': '我的', '有人': '有人', '没有': '沒有',
+                                    '中国人': '中國人', '中国': '中國', '美国': '美國',
+                                    '很多': '很多', '来了': '來了', '过来': '過來',
+                                    '去了': '去了', '回去': '回去', '在家': '在家',
+                                    '现在': '現在', '好了': '好了', '不好': '不好',
+                                    '不是': '不是'
+                                };
+                                phrase.traditional = phraseTradMap[phrase.simplified] || phrase.simplified;
+                            }
+
+                            if (typeof PinyinPro !== 'undefined') {
+                                phrase.pinyin = PinyinPro.pinyin(phrase.simplified, { toneType: 'symbol' });
+                            } else {
+                                // Fallback for demo
+                                const phrasePinyinMap = {
+                                    '你好': 'nǐ hǎo', '你们': 'nǐ men', '很好': 'hěn hǎo',
+                                    '我是': 'wǒ shì', '我们': 'wǒ men', '是的': 'shì de',
+                                    '我的': 'wǒ de', '有人': 'yǒu rén', '没有': 'méi yǒu',
+                                    '中国人': 'zhōng guó rén', '中国': 'zhōng guó',
+                                    '美国': 'měi guó', '很多': 'hěn duō', '来了': 'lái le',
+                                    '过来': 'guò lái', '去了': 'qù le', '回去': 'huí qù',
+                                    '在家': 'zài jiā', '现在': 'xiàn zài', '好了': 'hǎo le',
+                                    '不好': 'bù hǎo', '不是': 'bú shì'
+                                };
+                                phrase.pinyin = phrasePinyinMap[phrase.simplified] || 'unknown';
+                            }
+                        }
+
+                        this.allPinyinOptions.push(data.pinyin);
+                    } catch (error) {
+                        console.error(`Error processing character ${char}:`, error);
+                    }
+                }
+            }
+
+            updatePoolSize() {
+                const currentDate = new Date();
+                const daysDiff = Math.floor((currentDate - this.startDate) / (1000 * 60 * 60 * 24));
+                const poolSize = Math.min(5 + (daysDiff * 2), Object.keys(this.charactersData).length);
+
+                this.currentPool = Object.keys(this.charactersData).slice(0, poolSize);
+
+                document.getElementById('currentDay').textContent = daysDiff + 1;
+                document.getElementById('poolSize').textContent = poolSize;
+            }
+
+            setupEventListeners() {
+                const options = document.querySelectorAll('.option-button');
+                options.forEach((option, index) => {
+                    option.addEventListener('click', () => this.handleOptionClick(index));
+                });
+
+                document.getElementById('phrasesSection').addEventListener('click', () => {
+                    if (this.isShowingPhrases) {
+                        this.startNewRound();
+                    }
+                });
+            }
+
+            startNewRound() {
+                this.isShowingPhrases = false;
+                this.stopSpeech();
+                this.clearHanziWriters();
+
+                // Hide phrases section and show options
+                document.getElementById('phrasesSection').classList.add('hidden');
+                document.getElementById('optionsSection').classList.remove('hidden');
+
+                // Select random character from current pool
+                const randomIndex = Math.floor(Math.random() * this.currentPool.length);
+                this.currentCharacter = this.currentPool[randomIndex];
+                const charData = this.charactersData[this.currentCharacter];
+
+                this.correctPinyin = charData.pinyin;
+
+                // Display characters in 2x2 grid
+                this.displayStaticCharacter(this.currentCharacter, 'simplifiedStatic');
+                this.displayStaticCharacter(charData.traditional, 'traditionalStatic');
+                this.displayCharacterWithStrokes(this.currentCharacter, 'simplifiedStrokes');
+                this.displayCharacterWithStrokes(charData.traditional, 'traditionalStrokes');
+
+                // Generate pinyin options
+                this.generatePinyinOptions();
+
+                // Reset option buttons
+                const options = document.querySelectorAll('.option-button');
+                options.forEach(option => {
+                    option.classList.remove('correct', 'incorrect');
+                    option.disabled = false;
+                });
+            }
+
+            displayStaticCharacter(char, containerId) {
+                const container = document.getElementById(containerId);
+                container.innerHTML = `<div style="font-size: 48px; color: #333; font-weight: 500;">${char}</div>`;
+            }
+
+            displayCharacterWithStrokes(char, containerId) {
+                const container = document.getElementById(containerId);
+                container.innerHTML = '';
+
+                try {
+                    const writer = HanziWriter.create(container, char, {
+                        width: 70,
+                        height: 70,
+                        padding: 5,
+                        strokeAnimationSpeed: 2,
+                        delayBetweenStrokes: 100,
+                        showCharacter: false
+                    });
+
+                    this.hanziWriters.push(writer);
+
+                    // Animate stroke order on repeat
+                    const animateRepeat = () => {
+                        writer.animateCharacter({
+                            onComplete: () => {
+                                setTimeout(animateRepeat, 2000);
+                            }
+                        });
+                    };
+
+                    animateRepeat();
+                } catch (error) {
+                    // Fallback if HanziWriter fails
+                    container.innerHTML = `<div style="font-size: 48px; color: #333;">${char}</div>`;
+                }
+            }
+            
+            clearHanziWriters() {
+                this.hanziWriters.forEach(writer => {
+                    try {
+                        if (writer && writer.cancelAnimation) {
+                            writer.cancelAnimation();
+                        }
+                    } catch (error) {
+                        console.error('Error clearing hanzi writer:', error);
+                    }
+                });
+                this.hanziWriters = [];
+            }
+            
+            generatePinyinOptions() {
+                const options = [this.correctPinyin];
+                const availablePinyin = this.allPinyinOptions.filter(p => p !== this.correctPinyin);
+                
+                // Add 3 random incorrect options
+                while (options.length < 4 && availablePinyin.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * availablePinyin.length);
+                    const selectedPinyin = availablePinyin[randomIndex];
+                    if (!options.includes(selectedPinyin)) {
+                        options.push(selectedPinyin);
+                    }
+                    availablePinyin.splice(randomIndex, 1);
+                }
+                
+                // Shuffle options
+                for (let i = options.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [options[i], options[j]] = [options[j], options[i]];
+                }
+                
+                // Display options
+                options.forEach((option, index) => {
+                    document.getElementById(`option${index + 1}`).textContent = option;
+                });
+            }
+            
+            handleOptionClick(optionIndex) {
+                const selectedOption = document.getElementById(`option${optionIndex + 1}`);
+                const selectedPinyin = selectedOption.textContent;
+                
+                if (selectedPinyin === this.correctPinyin) {
+                    this.handleCorrectAnswer(selectedOption);
+                } else {
+                    this.handleIncorrectAnswer(selectedOption);
+                }
+            }
+            
+            handleCorrectAnswer(button) {
+                button.classList.add('correct');
+                // Start audio pronunciation
+                this.startAudioLoop();
+
+                // Disable all buttons
+                const options = document.querySelectorAll('.option-button');
+                options.forEach(option => option.disabled = true);
+
+                this.showPhrases();
+            }
+            
+            handleIncorrectAnswer(button) {
+                button.classList.add('incorrect');
+                button.disabled = true;
+            }
+            
+            showPhrases() {
+                this.isShowingPhrases = true;
+                const charData = this.charactersData[this.currentCharacter];
+                const phrasesList = document.getElementById('phrasesList');
+                
+                phrasesList.innerHTML = '';
+                
+                charData.forEach(phrase => {
+                    const phraseDiv = document.createElement('div');
+                    phraseDiv.className = 'phrase-item';
+                    phraseDiv.innerHTML = `
+                        <strong>${phrase.simplified}</strong> | <strong>${phrase.traditional}</strong> | 
+                        ${phrase.pinyin} | ${phrase.english}
+                    `;
+                    phrasesList.appendChild(phraseDiv);
+                });
+                
+                //document.getElementById('optionsSection').classList.add('hidden');
+                document.getElementById('phrasesSection').classList.remove('hidden');
+            }
+            
+            startAudioLoop() {
+                if (this.audioButton.checked) {
+                    this.stopSpeech();
+                    this.audioIteration = 0;
+
+                    let speak = () => {
+                        if ('speechSynthesis' in window) {
+                            window.speechSynthesis.cancel();
+                            const utterance = new SpeechSynthesisUtterance(this.currentCharacter);
+                            let voices = window.speechSynthesis.getVoices();
+                            voices = voices.filter(voice => voice.lang.startsWith('zh-CN'));
+                            utterance.voice = voices[this.audioIteration%voices.length]
+                            utterance.lang = 'zh-CN';
+                            utterance.rate = 0.5;
+                            this.audioIteration++;
+                            this.speechSynthesis.speak(utterance);
+                            this.currentSpeechTimeout = setTimeout(speak, 2000);
+                        }
+                    };
+
+                    speak();
+                }
+            }
+            
+            stopSpeech() {
+                if (this.currentSpeechTimeout) {
+                    clearTimeout(this.currentSpeechTimeout);
+                    this.currentSpeechTimeout = null;
+                }
+                
+                if (this.speechSynthesis) {
+                    this.speechSynthesis.cancel();
+                }
+            }
+            
+            hideLoading() {
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('app').classList.remove('hidden');
+            }
+            
+            showError() {
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('error').classList.remove('hidden');
+            }
+        }
+        
+        // Initialize the app when the page loads
+        window.addEventListener('load', () => {
+            new ChineseFlashcardApp();
+        });
+    </script>
+</body>
+</html>

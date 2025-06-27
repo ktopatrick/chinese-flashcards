@@ -1,0 +1,1854 @@
+{
+    "水":
+    [
+        {"simplified": "水", "english": "water"},
+        {"simplified": "水果", "english": "fruit"}
+    ],
+    "咖":
+    [
+        {"simplified": "咖啡", "english": "coffee"}
+    ],
+    "啡":
+    [
+        {"simplified": "咖啡", "english": "coffee"}
+    ],
+    "和":
+    [
+        {"simplified": "和", "english": "and"}
+    ],
+    "茶":
+    [
+        {"simplified": "茶", "english": "tea"},
+        {"simplified": "奶茶", "english": "milk tea"},
+        {"simplified": "绿茶", "english": "green tea"}
+    ],
+    "米":
+    [
+        {"simplified": "米饭", "english": "rice"},
+        {"simplified": "爆米花", "english": "popcorn"},
+        {"simplified": "玉米", "english": "corn"}
+    ],
+    "饭":
+    [
+        {"simplified": "米饭", "english": "rice"},
+        {"simplified": "饭馆", "english": "restaurant"},
+        {"simplified": "晚饭", "english": "dinner"},
+        {"simplified": "做饭", "english": "cook"},
+        {"simplified": "早饭", "english": "breakfast"}
+    ],
+    "汤":
+    [
+        {"simplified": "汤", "english": "soup"}
+    ],
+    "热":
+    [
+        {"simplified": "热", "english": "hot"},
+        {"simplified": "热闹", "english": "lively"}
+    ],
+    "这":
+    [
+        {"simplified": "这是", "english": "This is"},
+        {"simplified": "这是", "english": "this is"},
+        {"simplified": "这", "english": "this"},
+        {"simplified": "这里", "english": "here"},
+        {"simplified": "这些", "english": "these"}
+    ],
+    "是":
+    [
+        {"simplified": "这是", "english": "This is"},
+        {"simplified": "是", "english": "am"},
+        {"simplified": "这是", "english": "this is"},
+        {"simplified": "还是", "english": "or"},
+        {"simplified": "是我", "english": "It's me"}
+    ],
+    "粥":
+    [
+        {"simplified": "粥", "english": "porridge"}
+    ],
+    "豆":
+    [
+        {"simplified": "豆腐", "english": "tofu"},
+        {"simplified": "土豆", "english": "potato"}
+    ],
+    "腐":
+    [
+        {"simplified": "豆腐", "english": "tofu"}
+    ],
+    "美":
+    [
+        {"simplified": "美国", "english": "America"}
+    ],
+    "国":
+    [
+        {"simplified": "美国", "english": "America"},
+        {"simplified": "中国", "english": "China"},
+        {"simplified": "韩国", "english": "South Korea"},
+        {"simplified": "英国", "english": "the UK"},
+        {"simplified": "泰国", "english": "Thailand"}
+    ],
+    "中":
+    [
+        {"simplified": "中国", "english": "China"},
+        {"simplified": "中文", "english": "Chinese"},
+        {"simplified": "中学生", "english": "middle school student"},
+        {"simplified": "中学", "english": "middle school"}
+    ],
+    "日":
+    [
+        {"simplified": "日本", "english": "Japan"},
+        {"simplified": "生日", "english": "birthday"}
+    ],
+    "本":
+    [
+        {"simplified": "日本", "english": "Japan"}
+    ],
+    "我":
+    [
+        {"simplified": "我", "english": "I"},
+        {"simplified": "我们", "english": "we"},
+        {"simplified": "是我", "english": "It's me"}
+    ],
+    "你":
+    [
+        {"simplified": "你呢", "english": "how about you"},
+        {"simplified": "你", "english": "you"},
+        {"simplified": "你好", "english": "hello"},
+        {"simplified": "你们", "english": "you all"}
+    ],
+    "呢":
+    [
+        {"simplified": "你呢", "english": "how about you"}
+    ],
+    "韩":
+    [
+        {"simplified": "韩国", "english": "South Korea"},
+        {"simplified": "韩文", "english": "Korean"}
+    ],
+    "英":
+    [
+        {"simplified": "英文", "english": "English"},
+        {"simplified": "英国", "english": "the UK"}
+    ],
+    "文":
+    [
+        {"simplified": "英文", "english": "English"},
+        {"simplified": "中文", "english": "Chinese"},
+        {"simplified": "韩文", "english": "Korean"}
+    ],
+    "医":
+    [
+        {"simplified": "医生", "english": "doctor"},
+        {"simplified": "医院", "english": "hospital"}
+    ],
+    "生":
+    [
+        {"simplified": "医生", "english": "doctor"},
+        {"simplified": "学生", "english": "student"},
+        {"simplified": "大学生", "english": "college student"},
+        {"simplified": "中学生", "english": "middle school student"},
+        {"simplified": "生日", "english": "birthday"},
+        {"simplified": "生活", "english": "live"}
+    ],
+    "老":
+    [
+        {"simplified": "老师", "english": "teacher"},
+        {"simplified": "老公", "english": "husband"},
+        {"simplified": "老婆", "english": "wife"},
+        {"simplified": "老家", "english": "hometown"},
+        {"simplified": "老朋友", "english": "old friend"}
+    ],
+    "师":
+    [
+        {"simplified": "老师", "english": "teacher"},
+        {"simplified": "律师", "english": "lawyer"}
+    ],
+    "对":
+    [
+        {"simplified": "对不对", "english": "right"},
+        {"simplified": "对", "english": "correct"},
+        {"simplified": "派对", "english": "party"},
+        {"simplified": "对面", "english": "across from"}
+    ],
+    "不":
+    [
+        {"simplified": "对不对", "english": "right"},
+        {"simplified": "不常", "english": "infrequently"},
+        {"simplified": "不", "english": "no"},
+        {"simplified": "不客气", "english": "You're welcome"},
+        {"simplified": "不行", "english": "no"},
+        {"simplified": "不舒服", "english": "uncomfortable"}
+    ],
+    "律":
+    [
+        {"simplified": "律师", "english": "lawyer"}
+    ],
+    "说":
+    [
+        {"simplified": "说", "english": "speak"}
+    ],
+    "学":
+    [
+        {"simplified": "学生", "english": "student"},
+        {"simplified": "大学生", "english": "college student"},
+        {"simplified": "数学", "english": "math"},
+        {"simplified": "中学生", "english": "middle school student"},
+        {"simplified": "同学", "english": "classmate"},
+        {"simplified": "学校", "english": "school"},
+        {"simplified": "小学", "english": "elementary school"},
+        {"simplified": "中学", "english": "middle school"},
+        {"simplified": "学", "english": "learn"}
+    ],
+    "喜":
+    [
+        {"simplified": "喜欢", "english": "like"},
+        {"simplified": "惊喜", "english": "surprise"}
+    ],
+    "欢":
+    [
+        {"simplified": "喜欢", "english": "like"}
+    ],
+    "课":
+    [
+        {"simplified": "课", "english": "class"}
+    ],
+    "大":
+    [
+        {"simplified": "大学生", "english": "college student"},
+        {"simplified": "加拿大", "english": "Canada"},
+        {"simplified": "大", "english": "big"},
+        {"simplified": "长大", "english": "grow up"}
+    ],
+    "数":
+    [
+        {"simplified": "数学", "english": "math"}
+    ],
+    "他":
+    [
+        {"simplified": "他", "english": "he"},
+        {"simplified": "吉他", "english": "guitar"},
+        {"simplified": "他们", "english": "they"}
+    ],
+    "音":
+    [
+        {"simplified": "音乐", "english": "music"}
+    ],
+    "乐":
+    [
+        {"simplified": "音乐", "english": "music"},
+        {"simplified": "俱乐部", "english": "club"},
+        {"simplified": "可乐", "english": "cola"},
+        {"simplified": "快乐", "english": "happy"}
+    ],
+    "她":
+    [
+        {"simplified": "她", "english": "she"}
+    ],
+    "爸":
+    [
+        {"simplified": "爸爸", "english": "dad"}
+    ],
+    "儿":
+    [
+        {"simplified": "儿子", "english": "son"},
+        {"simplified": "女儿", "english": "daughter"},
+        {"simplified": "好玩儿", "english": "fun"},
+        {"simplified": "出去玩儿", "english": "go out for fun"},
+        {"simplified": "女孩儿", "english": "girl"},
+        {"simplified": "有事儿", "english": "busy"}
+    ],
+    "子":
+    [
+        {"simplified": "儿子", "english": "son"},
+        {"simplified": "房子", "english": "house"},
+        {"simplified": "桌子", "english": "table"},
+        {"simplified": "饺子", "english": "dumpling"},
+        {"simplified": "盘子", "english": "plate"},
+        {"simplified": "杯子", "english": "cup"},
+        {"simplified": "兔子", "english": "rabbit"},
+        {"simplified": "椅子", "english": "chair"},
+        {"simplified": "帽子", "english": "hat"},
+        {"simplified": "筷子", "english": "chopsticks"},
+        {"simplified": "勺子", "english": "spoon"},
+        {"simplified": "肚子", "english": "abdomen"}
+    ],
+    "妈":
+    [
+        {"simplified": "妈妈", "english": "mother"}
+    ],
+    "公":
+    [
+        {"simplified": "老公", "english": "husband"},
+        {"simplified": "公园", "english": "park"},
+        {"simplified": "公寓", "english": "apartment"},
+        {"simplified": "公交车", "english": "bus"},
+        {"simplified": "公交站", "english": "bus stop"}
+    ],
+    "加":
+    [
+        {"simplified": "加拿大", "english": "Canada"},
+        {"simplified": "参加", "english": "participate"},
+        {"simplified": "加入", "english": "join"},
+        {"simplified": "加油", "english": "Keep it up"}
+    ],
+    "拿":
+    [
+        {"simplified": "加拿大", "english": "Canada"}
+    ],
+    "婆":
+    [
+        {"simplified": "老婆", "english": "wife"}
+    ],
+    "也":
+    [
+        {"simplified": "也", "english": "also"}
+    ],
+    "女":
+    [
+        {"simplified": "女儿", "english": "daughter"},
+        {"simplified": "女孩儿", "english": "girl"}
+    ],
+    "去":
+    [
+        {"simplified": "去", "english": "to go"},
+        {"simplified": "出去玩儿", "english": "go out for fun"}
+    ],
+    "常":
+    [
+        {"simplified": "常常", "english": "frequently"},
+        {"simplified": "不常", "english": "infrequently"},
+        {"simplified": "非常", "english": "extremely"}
+    ],
+    "书":
+    [
+        {"simplified": "书店", "english": "bookstore"},
+        {"simplified": "书", "english": "book"},
+        {"simplified": "书架", "english": "bookshelf"},
+        {"simplified": "图书馆", "english": "library"},
+        {"simplified": "书房", "english": "study"}
+    ],
+    "店":
+    [
+        {"simplified": "书店", "english": "bookstore"},
+        {"simplified": "药店", "english": "pharmacy"},
+        {"simplified": "酒店", "english": "hotel"}
+    ],
+    "超":
+    [
+        {"simplified": "超市", "english": "supermarket"}
+    ],
+    "市":
+    [
+        {"simplified": "超市", "english": "supermarket"}
+    ],
+    "馆":
+    [
+        {"simplified": "饭馆", "english": "restaurant"},
+        {"simplified": "博物馆", "english": "museum"},
+        {"simplified": "图书馆", "english": "library"},
+        {"simplified": "体育馆", "english": "gymnasium"}
+    ],
+    "菜":
+    [
+        {"simplified": "菜", "english": "cuisine"},
+        {"simplified": "蔬菜", "english": "vegetable"},
+        {"simplified": "菜", "english": "dish"}
+    ],
+    "吃":
+    [
+        {"simplified": "吃", "english": "to eat"},
+        {"simplified": "好吃", "english": "delicious"}
+    ],
+    "买":
+    [
+        {"simplified": "买", "english": "to buy"}
+    ],
+    "零":
+    [
+        {"simplified": "零食", "english": "snack"}
+    ],
+    "食":
+    [
+        {"simplified": "零食", "english": "snack"},
+        {"simplified": "食堂", "english": "cafeteria"}
+    ],
+    "看":
+    [
+        {"simplified": "看", "english": "to read"},
+        {"simplified": "看", "english": "watch"},
+        {"simplified": "好看", "english": "beautiful"},
+        {"simplified": "看", "english": "see"}
+    ],
+    "谢":
+    [
+        {"simplified": "谢谢", "english": "thanks"}
+    ],
+    "杯":
+    [
+        {"simplified": "杯", "english": "cup of"},
+        {"simplified": "杯子", "english": "cup"}
+    ],
+    "要":
+    [
+        {"simplified": "要", "english": "want to"},
+        {"simplified": "需要", "english": "need"}
+    ],
+    "奶":
+    [
+        {"simplified": "奶茶", "english": "milk tea"},
+        {"simplified": "牛奶", "english": "milk"},
+        {"simplified": "奶奶", "english": "grandmother"}
+    ],
+    "两":
+    [
+        {"simplified": "两", "english": "two"}
+    ],
+    "牛":
+    [
+        {"simplified": "牛奶", "english": "milk"},
+        {"simplified": "牛肉", "english": "beef"}
+    ],
+    "冰":
+    [
+        {"simplified": "冰", "english": "ice"},
+        {"simplified": "冰箱", "english": "refrigerator"},
+        {"simplified": "冰淇淋", "english": "ice cream"},
+        {"simplified": "冰", "english": "iced"}
+    ],
+    "绿":
+    [
+        {"simplified": "绿茶", "english": "green tea"}
+    ],
+    "客":
+    [
+        {"simplified": "不客气", "english": "You're welcome"},
+        {"simplified": "客厅", "english": "living room"}
+    ],
+    "气":
+    [
+        {"simplified": "不客气", "english": "You're welcome"},
+        {"simplified": "气球", "english": "balloon"},
+        {"simplified": "天气", "english": "weather"}
+    ],
+    "手":
+    [
+        {"simplified": "手机", "english": "cellphone"},
+        {"simplified": "洗手间", "english": "bathroom"},
+        {"simplified": "手", "english": "hand"},
+        {"simplified": "歌手", "english": "singer"}
+    ],
+    "机":
+    [
+        {"simplified": "手机", "english": "cellphone"},
+        {"simplified": "洗碗机", "english": "dishwasher"},
+        {"simplified": "机场", "english": "airport"},
+        {"simplified": "飞机", "english": "plane"}
+    ],
+    "里":
+    [
+        {"simplified": "这里", "english": "here"},
+        {"simplified": "哪里", "english": "where"},
+        {"simplified": "里面", "english": "inside"},
+        {"simplified": "那里", "english": "there"}
+    ],
+    "在":
+    [
+        {"simplified": "在", "english": "is"},
+        {"simplified": "现在", "english": "now"},
+        {"simplified": "在", "english": "in"},
+        {"simplified": "在家", "english": "home"}
+    ],
+    "钱":
+    [
+        {"simplified": "钱包", "english": "wallet"}
+    ],
+    "包":
+    [
+        {"simplified": "钱包", "english": "wallet"},
+        {"simplified": "面包", "english": "bread"}
+    ],
+    "洗":
+    [
+        {"simplified": "洗手间", "english": "bathroom"},
+        {"simplified": "洗", "english": "wash"},
+        {"simplified": "洗碗机", "english": "dishwasher"}
+    ],
+    "间":
+    [
+        {"simplified": "洗手间", "english": "bathroom"},
+        {"simplified": "房间", "english": "bedroom"}
+    ],
+    "哪":
+    [
+        {"simplified": "哪里", "english": "where"}
+    ],
+    "火":
+    [
+        {"simplified": "火车站", "english": "train station"},
+        {"simplified": "火车", "english": "train"},
+        {"simplified": "火锅", "english": "hot pot"}
+    ],
+    "车":
+    [
+        {"simplified": "火车站", "english": "train station"},
+        {"simplified": "车票", "english": "ticket"},
+        {"simplified": "火车", "english": "train"},
+        {"simplified": "公交车", "english": "bus"},
+        {"simplified": "停车场", "english": "parking lot"},
+        {"simplified": "出租车", "english": "taxi"}
+    ],
+    "站":
+    [
+        {"simplified": "火车站", "english": "train station"},
+        {"simplified": "站台", "english": "platform"},
+        {"simplified": "地铁站", "english": "subway station"},
+        {"simplified": "公交站", "english": "bus stop"}
+    ],
+    "呀":
+    [
+        {"simplified": "哎呀", "english": "oh no"}
+    ],
+    "行":
+    [
+        {"simplified": "行李", "english": "luggage"},
+        {"simplified": "流行", "english": "pop"},
+        {"simplified": "不行", "english": "no"},
+        {"simplified": "旅行", "english": "travel"},
+        {"simplified": "流行", "english": "popular"}
+    ],
+    "李":
+    [
+        {"simplified": "行李", "english": "luggage"}
+    ],
+    "票":
+    [
+        {"simplified": "车票", "english": "ticket"},
+        {"simplified": "门票", "english": "admission ticket"}
+    ],
+    "台":
+    [
+        {"simplified": "站台", "english": "platform"},
+        {"simplified": "台灯", "english": "lamp"}
+    ],
+    "同":
+    [
+        {"simplified": "同学", "english": "classmate"}
+    ],
+    "新":
+    [
+        {"simplified": "新", "english": "new"},
+        {"simplified": "新鲜", "english": "fresh"}
+    ],
+    "有":
+    [
+        {"simplified": "有", "english": "have"},
+        {"simplified": "有名", "english": "famous"},
+        {"simplified": "有趣", "english": "interesting"},
+        {"simplified": "有事儿", "english": "busy"}
+    ],
+    "好":
+    [
+        {"simplified": "你好", "english": "hello"},
+        {"simplified": "好玩儿", "english": "fun"},
+        {"simplified": "好吃", "english": "delicious"},
+        {"simplified": "好的", "english": "Okay"},
+        {"simplified": "好看", "english": "beautiful"},
+        {"simplified": "好喝", "english": "delicious"},
+        {"simplified": "好听", "english": "pleasant to listen to"},
+        {"simplified": "好啊", "english": "sure"},
+        {"simplified": "好", "english": "good"}
+    ],
+    "四":
+    [
+        {"simplified": "四", "english": "four"},
+        {"simplified": "四十", "english": "forty"}
+    ],
+    "今":
+    [
+        {"simplified": "今天", "english": "today"}
+    ],
+    "天":
+    [
+        {"simplified": "今天", "english": "today"},
+        {"simplified": "夏天", "english": "summer"},
+        {"simplified": "冬天", "english": "winter"},
+        {"simplified": "秋天", "english": "autumn"},
+        {"simplified": "春天", "english": "spring"},
+        {"simplified": "昨天", "english": "yesterday"},
+        {"simplified": "星期天", "english": "Sunday"},
+        {"simplified": "明天", "english": "tomorrow"},
+        {"simplified": "后天", "english": "the day after tomorrow"},
+        {"simplified": "天气", "english": "weather"}
+    ],
+    "历":
+    [
+        {"simplified": "历史", "english": "history"}
+    ],
+    "史":
+    [
+        {"simplified": "历史", "english": "history"}
+    ],
+    "们":
+    [
+        {"simplified": "我们", "english": "we"},
+        {"simplified": "你们", "english": "you all"},
+        {"simplified": "人们", "english": "people"},
+        {"simplified": "他们", "english": "they"}
+    ],
+    "真":
+    [
+        {"simplified": "真的吗", "english": "Really?"},
+        {"simplified": "真", "english": "really"}
+    ],
+    "的":
+    [
+        {"simplified": "真的吗", "english": "Really?"},
+        {"simplified": "好的", "english": "Okay"}
+    ],
+    "吗":
+    [
+        {"simplified": "吗", "english": "used for asking questions"},
+        {"simplified": "真的吗", "english": "Really?"}
+    ],
+    "运":
+    [
+        {"simplified": "运动", "english": "exercise"}
+    ],
+    "动":
+    [
+        {"simplified": "运动", "english": "exercise"},
+        {"simplified": "动物园", "english": "zoo"},
+        {"simplified": "活动", "english": "event"},
+        {"simplified": "动画片", "english": "cartoon"}
+    ],
+    "篮":
+    [
+        {"simplified": "篮球", "english": "basketball"}
+    ],
+    "球":
+    [
+        {"simplified": "篮球", "english": "basketball"},
+        {"simplified": "排球", "english": "volleyball"},
+        {"simplified": "网球", "english": "tennis"},
+        {"simplified": "棒球", "english": "baseball"},
+        {"simplified": "足球", "english": "soccer"},
+        {"simplified": "气球", "english": "balloon"},
+        {"simplified": "乒乓球", "english": "ping pong"}
+    ],
+    "打":
+    [
+        {"simplified": "打", "english": "play"},
+        {"simplified": "打扫", "english": "clean"}
+    ],
+    "非":
+    [
+        {"simplified": "非常", "english": "extremely"}
+    ],
+    "排":
+    [
+        {"simplified": "排球", "english": "volleyball"}
+    ],
+    "网":
+    [
+        {"simplified": "网球", "english": "tennis"},
+        {"simplified": "上网", "english": "access the internet"}
+    ],
+    "还":
+    [
+        {"simplified": "还是", "english": "or"},
+        {"simplified": "还", "english": "still"}
+    ],
+    "比":
+    [
+        {"simplified": "比较", "english": "relatively"}
+    ],
+    "园":
+    [
+        {"simplified": "公园", "english": "park"},
+        {"simplified": "动物园", "english": "zoo"},
+        {"simplified": "校园", "english": "campus"}
+    ],
+    "健":
+    [
+        {"simplified": "健身房", "english": "gym"},
+        {"simplified": "健康", "english": "healthy"}
+    ],
+    "身":
+    [
+        {"simplified": "健身房", "english": "gym"}
+    ],
+    "房":
+    [
+        {"simplified": "健身房", "english": "gym"},
+        {"simplified": "房子", "english": "house"},
+        {"simplified": "房间", "english": "bedroom"},
+        {"simplified": "厨房", "english": "kitchen"},
+        {"simplified": "书房", "english": "study"}
+    ],
+    "寓":
+    [
+        {"simplified": "公寓", "english": "apartment"}
+    ],
+    "只":
+    [
+        {"simplified": "只", "english": "only"},
+        {"simplified": "只", "english": "measure word for animals"}
+    ],
+    "厅":
+    [
+        {"simplified": "客厅", "english": "living room"}
+    ],
+    "小":
+    [
+        {"simplified": "小", "english": "small"},
+        {"simplified": "小心", "english": "be careful"},
+        {"simplified": "小提琴", "english": "violin"},
+        {"simplified": "小学", "english": "elementary school"}
+    ],
+    "室":
+    [
+        {"simplified": "卧室", "english": "bedroom"},
+        {"simplified": "室友", "english": "roommate"}
+    ],
+    "漂":
+    [
+        {"simplified": "漂亮", "english": "beautiful"}
+    ],
+    "亮":
+    [
+        {"simplified": "漂亮", "english": "beautiful"},
+        {"simplified": "亮", "english": "bright"}
+    ],
+    "厨":
+    [
+        {"simplified": "厨房", "english": "kitchen"}
+    ],
+    "沙":
+    [
+        {"simplified": "沙发", "english": "sofa"}
+    ],
+    "发":
+    [
+        {"simplified": "沙发", "english": "sofa"},
+        {"simplified": "发烧", "english": "fever"},
+        {"simplified": "出发", "english": "depart"}
+    ],
+    "舒":
+    [
+        {"simplified": "舒服", "english": "comfortable"},
+        {"simplified": "不舒服", "english": "uncomfortable"}
+    ],
+    "服":
+    [
+        {"simplified": "舒服", "english": "comfortable"},
+        {"simplified": "衣服", "english": "clothes"},
+        {"simplified": "不舒服", "english": "uncomfortable"}
+    ],
+    "电":
+    [
+        {"simplified": "电视", "english": "TV"},
+        {"simplified": "电影", "english": "movie"},
+        {"simplified": "电脑", "english": "computer"}
+    ],
+    "视":
+    [
+        {"simplified": "电视", "english": "TV"}
+    ],
+    "床":
+    [
+        {"simplified": "床", "english": "bed"}
+    ],
+    "旧":
+    [
+        {"simplified": "旧", "english": "old"}
+    ],
+    "乱":
+    [
+        {"simplified": "乱", "english": "messy"}
+    ],
+    "桌":
+    [
+        {"simplified": "桌子", "english": "table"},
+        {"simplified": "桌游", "english": "board game"}
+    ],
+    "夏":
+    [
+        {"simplified": "夏天", "english": "summer"}
+    ],
+    "北":
+    [
+        {"simplified": "北京", "english": "Beijing"}
+    ],
+    "京":
+    [
+        {"simplified": "北京", "english": "Beijing"}
+    ],
+    "玩":
+    [
+        {"simplified": "好玩儿", "english": "fun"},
+        {"simplified": "玩", "english": "play"},
+        {"simplified": "玩具", "english": "toy"},
+        {"simplified": "出去玩儿", "english": "go out for fun"}
+    ],
+    "家":
+    [
+        {"simplified": "老家", "english": "hometown"},
+        {"simplified": "家", "english": "home"},
+        {"simplified": "家人", "english": "family"},
+        {"simplified": "在家", "english": "home"}
+    ],
+    "冷":
+    [
+        {"simplified": "冷", "english": "cold"}
+    ],
+    "特":
+    [
+        {"simplified": "特别", "english": "especially"}
+    ],
+    "别":
+    [
+        {"simplified": "特别", "english": "especially"},
+        {"simplified": "别", "english": "don't"},
+        {"simplified": "别着急", "english": "don't worry"}
+    ],
+    "冬":
+    [
+        {"simplified": "冬天", "english": "winter"}
+    ],
+    "故":
+    [
+        {"simplified": "故宫", "english": "Forbidden City"}
+    ],
+    "长":
+    [
+        {"simplified": "长城", "english": "Great Wall"},
+        {"simplified": "长大", "english": "grow up"}
+    ],
+    "城":
+    [
+        {"simplified": "长城", "english": "Great Wall"}
+    ],
+    "秋":
+    [
+        {"simplified": "秋天", "english": "autumn"}
+    ],
+    "名":
+    [
+        {"simplified": "有名", "english": "famous"}
+    ],
+    "人":
+    [
+        {"simplified": "人们", "english": "people"},
+        {"simplified": "人", "english": "person"},
+        {"simplified": "家人", "english": "family"}
+    ],
+    "门":
+    [
+        {"simplified": "门票", "english": "admission ticket"}
+    ],
+    "远":
+    [
+        {"simplified": "远", "english": "far"}
+    ],
+    "贵":
+    [
+        {"simplified": "贵", "english": "expensive"}
+    ],
+    "春":
+    [
+        {"simplified": "春天", "english": "spring"}
+    ],
+    "物":
+    [
+        {"simplified": "动物园", "english": "zoo"},
+        {"simplified": "博物馆", "english": "museum"},
+        {"simplified": "礼物", "english": "gift"}
+    ],
+    "辣":
+    [
+        {"simplified": "辣", "english": "spicy"}
+    ],
+    "周":
+    [
+        {"simplified": "周末", "english": "weekend"}
+    ],
+    "末":
+    [
+        {"simplified": "周末", "english": "weekend"}
+    ],
+    "快":
+    [
+        {"simplified": "快", "english": "fast"},
+        {"simplified": "快乐", "english": "happy"}
+    ],
+    "交":
+    [
+        {"simplified": "公交车", "english": "bus"},
+        {"simplified": "公交站", "english": "bus stop"}
+    ],
+    "地":
+    [
+        {"simplified": "地铁", "english": "subway"},
+        {"simplified": "地", "english": "floor"},
+        {"simplified": "地方", "english": "place"},
+        {"simplified": "地铁站", "english": "subway station"},
+        {"simplified": "外地", "english": "out of town"}
+    ],
+    "铁":
+    [
+        {"simplified": "地铁", "english": "subway"},
+        {"simplified": "地铁站", "english": "subway station"}
+    ],
+    "坐":
+    [
+        {"simplified": "坐", "english": "take"}
+    ],
+    "爱":
+    [
+        {"simplified": "爱情", "english": "romance"},
+        {"simplified": "可爱", "english": "adorable"}
+    ],
+    "情":
+    [
+        {"simplified": "爱情", "english": "romance"}
+    ],
+    "影":
+    [
+        {"simplified": "电影", "english": "movie"}
+    ],
+    "爆":
+    [
+        {"simplified": "爆米花", "english": "popcorn"}
+    ],
+    "一":
+    [
+        {"simplified": "一", "english": "a"},
+        {"simplified": "一些", "english": "some"},
+        {"simplified": "一起", "english": "together"},
+        {"simplified": "十一", "english": "eleven"}
+    ],
+    "些":
+    [
+        {"simplified": "一些", "english": "some"},
+        {"simplified": "这些", "english": "these"},
+        {"simplified": "那些", "english": "those"}
+    ],
+    "蛋":
+    [
+        {"simplified": "蛋糕", "english": "cake"}
+    ],
+    "糕":
+    [
+        {"simplified": "蛋糕", "english": "cake"}
+    ],
+    "果":
+    [
+        {"simplified": "水果", "english": "fruit"},
+        {"simplified": "果汁", "english": "juice"},
+        {"simplified": "苹果", "english": "apple"}
+    ],
+    "带":
+    [
+        {"simplified": "带", "english": "bring"},
+        {"simplified": "领带", "english": "tie"}
+    ],
+    "饺":
+    [
+        {"simplified": "饺子", "english": "dumpling"}
+    ],
+    "汁":
+    [
+        {"simplified": "果汁", "english": "juice"}
+    ],
+    "做":
+    [
+        {"simplified": "做", "english": "make"},
+        {"simplified": "做饭", "english": "cook"},
+        {"simplified": "做", "english": "do"}
+    ],
+    "晚":
+    [
+        {"simplified": "晚饭", "english": "dinner"},
+        {"simplified": "晚上", "english": "evening"}
+    ],
+    "喝":
+    [
+        {"simplified": "喝", "english": "to drink"},
+        {"simplified": "好喝", "english": "delicious"}
+    ],
+    "土":
+    [
+        {"simplified": "土豆", "english": "potato"}
+    ],
+    "先":
+    [
+        {"simplified": "先", "english": "first"}
+    ],
+    "西":
+    [
+        {"simplified": "西红柿", "english": "tomato"},
+        {"simplified": "西班牙语", "english": "Spanish"},
+        {"simplified": "东西", "english": "thing"},
+        {"simplified": "西瓜", "english": "watermelon"}
+    ],
+    "红":
+    [
+        {"simplified": "西红柿", "english": "tomato"}
+    ],
+    "柿":
+    [
+        {"simplified": "西红柿", "english": "tomato"}
+    ],
+    "几":
+    [
+        {"simplified": "几", "english": "several"},
+        {"simplified": "几点", "english": "what time"}
+    ],
+    "盘":
+    [
+        {"simplified": "盘子", "english": "plate"},
+        {"simplified": "飞盘", "english": "frisbee"}
+    ],
+    "心":
+    [
+        {"simplified": "小心", "english": "be careful"},
+        {"simplified": "开心", "english": "happy"}
+    ],
+    "放":
+    [
+        {"simplified": "放", "english": "add"}
+    ],
+    "蔬":
+    [
+        {"simplified": "蔬菜", "english": "vegetable"}
+    ],
+    "肉":
+    [
+        {"simplified": "肉", "english": "meat"},
+        {"simplified": "鸡肉", "english": "chicken"},
+        {"simplified": "牛肉", "english": "beef"}
+    ],
+    "爷":
+    [
+        {"simplified": "爷爷", "english": "grandfather"}
+    ],
+    "多":
+    [
+        {"simplified": "多", "english": "more"},
+        {"simplified": "很多", "english": "a lot of"}
+    ],
+    "用":
+    [
+        {"simplified": "用", "english": "use"}
+    ],
+    "现":
+    [
+        {"simplified": "现在", "english": "now"}
+    ],
+    "淇":
+    [
+        {"simplified": "冰淇淋", "english": "ice cream"}
+    ],
+    "淋":
+    [
+        {"simplified": "冰淇淋", "english": "ice cream"}
+    ],
+    "碗":
+    [
+        {"simplified": "洗碗机", "english": "dishwasher"},
+        {"simplified": "碗", "english": "bowl"}
+    ],
+    "十":
+    [
+        {"simplified": "十", "english": "ten"},
+        {"simplified": "十一", "english": "eleven"},
+        {"simplified": "十二", "english": "twelve"},
+        {"simplified": "二十", "english": "twenty"},
+        {"simplified": "四十", "english": "forty"},
+        {"simplified": "五十", "english": "fifty"}
+    ],
+    "趣":
+    [
+        {"simplified": "有趣", "english": "interesting"}
+    ],
+    "俱":
+    [
+        {"simplified": "俱乐部", "english": "club"}
+    ],
+    "部":
+    [
+        {"simplified": "俱乐部", "english": "club"}
+    ],
+    "起":
+    [
+        {"simplified": "一起", "english": "together"},
+        {"simplified": "起飞", "english": "take off"}
+    ],
+    "会":
+    [
+        {"simplified": "会", "english": "can"}
+    ],
+    "足":
+    [
+        {"simplified": "足球", "english": "soccer"}
+    ],
+    "吉":
+    [
+        {"simplified": "吉他", "english": "guitar"}
+    ],
+    "流":
+    [
+        {"simplified": "流行", "english": "pop"},
+        {"simplified": "流行", "english": "popular"}
+    ],
+    "钢":
+    [
+        {"simplified": "钢琴", "english": "piano"}
+    ],
+    "琴":
+    [
+        {"simplified": "钢琴", "english": "piano"},
+        {"simplified": "小提琴", "english": "violin"}
+    ],
+    "练":
+    [
+        {"simplified": "练习", "english": "practice"}
+    ],
+    "习":
+    [
+        {"simplified": "练习", "english": "practice"},
+        {"simplified": "复习", "english": "review"}
+    ],
+    "语":
+    [
+        {"simplified": "语言", "english": "language"},
+        {"simplified": "法语", "english": "French"},
+        {"simplified": "西班牙语", "english": "Spanish"}
+    ],
+    "言":
+    [
+        {"simplified": "语言", "english": "language"}
+    ],
+    "法":
+    [
+        {"simplified": "法语", "english": "French"}
+    ],
+    "班":
+    [
+        {"simplified": "西班牙语", "english": "Spanish"}
+    ],
+    "牙":
+    [
+        {"simplified": "西班牙语", "english": "Spanish"}
+    ],
+    "面":
+    [
+        {"simplified": "面包", "english": "bread"},
+        {"simplified": "面条", "english": "noodle"},
+        {"simplified": "里面", "english": "inside"},
+        {"simplified": "外面", "english": "outside"},
+        {"simplified": "后面", "english": "behind"},
+        {"simplified": "前面", "english": "front"},
+        {"simplified": "对面", "english": "across from"}
+    ],
+    "饼":
+    [
+        {"simplified": "饼干", "english": "cookie"}
+    ],
+    "干":
+    [
+        {"simplified": "饼干", "english": "cookie"},
+        {"simplified": "干净", "english": "clean"}
+    ],
+    "条":
+    [
+        {"simplified": "面条", "english": "noodle"},
+        {"simplified": "条", "english": "measure word for string-like things"}
+    ],
+    "巧":
+    [
+        {"simplified": "巧克力", "english": "chocolate"}
+    ],
+    "克":
+    [
+        {"simplified": "巧克力", "english": "chocolate"}
+    ],
+    "力":
+    [
+        {"simplified": "巧克力", "english": "chocolate"}
+    ],
+    "康":
+    [
+        {"simplified": "健康", "english": "healthy"}
+    ],
+    "想":
+    [
+        {"simplified": "想", "english": "want"}
+    ],
+    "可":
+    [
+        {"simplified": "可爱", "english": "adorable"},
+        {"simplified": "可以", "english": "can"},
+        {"simplified": "可乐", "english": "cola"}
+    ],
+    "兔":
+    [
+        {"simplified": "兔子", "english": "rabbit"}
+    ],
+    "狗":
+    [
+        {"simplified": "狗", "english": "dog"}
+    ],
+    "出":
+    [
+        {"simplified": "出去玩儿", "english": "go out for fun"},
+        {"simplified": "出发", "english": "depart"},
+        {"simplified": "出租车", "english": "taxi"}
+    ],
+    "朋":
+    [
+        {"simplified": "朋友", "english": "friend"},
+        {"simplified": "老朋友", "english": "old friend"}
+    ],
+    "友":
+    [
+        {"simplified": "朋友", "english": "friend"},
+        {"simplified": "室友", "english": "roommate"},
+        {"simplified": "老朋友", "english": "old friend"}
+    ],
+    "姐":
+    [
+        {"simplified": "姐姐", "english": "sister"}
+    ],
+    "以":
+    [
+        {"simplified": "可以", "english": "can"}
+    ],
+    "商":
+    [
+        {"simplified": "商场", "english": "mall"}
+    ],
+    "场":
+    [
+        {"simplified": "商场", "english": "mall"},
+        {"simplified": "操场", "english": "playground"},
+        {"simplified": "停车场", "english": "parking lot"},
+        {"simplified": "机场", "english": "airport"}
+    ],
+    "哥":
+    [
+        {"simplified": "哥哥", "english": "brother"}
+    ],
+    "脑":
+    [
+        {"simplified": "电脑", "english": "computer"}
+    ],
+    "借":
+    [
+        {"simplified": "借", "english": "borrow"}
+    ],
+    "游":
+    [
+        {"simplified": "游戏", "english": "game"},
+        {"simplified": "游泳池", "english": "swimming pool"},
+        {"simplified": "桌游", "english": "board game"}
+    ],
+    "戏":
+    [
+        {"simplified": "游戏", "english": "game"}
+    ],
+    "窗":
+    [
+        {"simplified": "窗户", "english": "window"}
+    ],
+    "休":
+    [
+        {"simplified": "休息", "english": "rest"}
+    ],
+    "息":
+    [
+        {"simplified": "休息", "english": "rest"}
+    ],
+    "扫":
+    [
+        {"simplified": "扫", "english": "sweep"},
+        {"simplified": "打扫", "english": "clean"}
+    ],
+    "居":
+    [
+        {"simplified": "邻居", "english": "neighbor"}
+    ],
+    "找":
+    [
+        {"simplified": "找", "english": "find"}
+    ],
+    "方":
+    [
+        {"simplified": "地方", "english": "place"}
+    ],
+    "那":
+    [
+        {"simplified": "那", "english": "that"},
+        {"simplified": "那些", "english": "those"},
+        {"simplified": "那里", "english": "there"}
+    ],
+    "灯":
+    [
+        {"simplified": "台灯", "english": "lamp"}
+    ],
+    "重":
+    [
+        {"simplified": "重", "english": "heavy"}
+    ],
+    "椅":
+    [
+        {"simplified": "椅子", "english": "chair"}
+    ],
+    "架":
+    [
+        {"simplified": "书架", "english": "bookshelf"}
+    ],
+    "衣":
+    [
+        {"simplified": "衣服", "english": "clothes"}
+    ],
+    "勺":
+    [
+        {"simplified": "勺子", "english": "spoon"}
+    ],
+    "掉":
+    [
+        {"simplified": "扔掉", "english": "throw away"}
+    ],
+    "都":
+    [
+        {"simplified": "都", "english": "all"}
+    ],
+    "把":
+    [
+        {"simplified": "拖把", "english": "mop"}
+    ],
+    "东":
+    [
+        {"simplified": "东西", "english": "thing"}
+    ],
+    "吸":
+    [
+        {"simplified": "吸尘器", "english": "vacuum cleaner"}
+    ],
+    "尘":
+    [
+        {"simplified": "吸尘器", "english": "vacuum cleaner"}
+    ],
+    "脏":
+    [
+        {"simplified": "脏", "english": "dirty"}
+    ],
+    "妹":
+    [
+        {"simplified": "妹妹", "english": "sister"}
+    ],
+    "星":
+    [
+        {"simplified": "星期六", "english": "Saturday"},
+        {"simplified": "星期天", "english": "Sunday"},
+        {"simplified": "星期", "english": "week"}
+    ],
+    "期":
+    [
+        {"simplified": "星期六", "english": "Saturday"},
+        {"simplified": "星期天", "english": "Sunday"},
+        {"simplified": "星期", "english": "week"}
+    ],
+    "六":
+    [
+        {"simplified": "星期六", "english": "Saturday"},
+        {"simplified": "六", "english": "six"}
+    ],
+    "早":
+    [
+        {"simplified": "早饭", "english": "breakfast"},
+        {"simplified": "早上", "english": "morning"}
+    ],
+    "报":
+    [
+        {"simplified": "报纸", "english": "newspaper"}
+    ],
+    "纸":
+    [
+        {"simplified": "报纸", "english": "newspaper"}
+    ],
+    "帮":
+    [
+        {"simplified": "帮助", "english": "help"}
+    ],
+    "助":
+    [
+        {"simplified": "帮助", "english": "help"}
+    ],
+    "忙":
+    [
+        {"simplified": "忙", "english": "busy"}
+    ],
+    "净":
+    [
+        {"simplified": "干净", "english": "clean"}
+    ],
+    "需":
+    [
+        {"simplified": "需要", "english": "need"}
+    ],
+    "听":
+    [
+        {"simplified": "听", "english": "hear"},
+        {"simplified": "好听", "english": "pleasant to listen to"}
+    ],
+    "提":
+    [
+        {"simplified": "小提琴", "english": "violin"}
+    ],
+    "上":
+    [
+        {"simplified": "上网", "english": "access the internet"},
+        {"simplified": "早上", "english": "morning"},
+        {"simplified": "晚上", "english": "evening"},
+        {"simplified": "上海", "english": "Shanghai"},
+        {"simplified": "上午", "english": "morning"}
+    ],
+    "喂":
+    [
+        {"simplified": "喂", "english": "hello"}
+    ],
+    "什":
+    [
+        {"simplified": "什么", "english": "what"}
+    ],
+    "么":
+    [
+        {"simplified": "什么", "english": "what"}
+    ],
+    "飞":
+    [
+        {"simplified": "飞盘", "english": "frisbee"},
+        {"simplified": "起飞", "english": "take off"},
+        {"simplified": "飞机", "english": "plane"}
+    ],
+    "孩":
+    [
+        {"simplified": "女孩儿", "english": "girl"}
+    ],
+    "卖":
+    [
+        {"simplified": "卖", "english": "sell"}
+    ],
+    "烧":
+    [
+        {"simplified": "发烧", "english": "fever"}
+    ],
+    "跟":
+    [
+        {"simplified": "跟", "english": "with"}
+    ],
+    "院":
+    [
+        {"simplified": "医院", "english": "hospital"}
+    ],
+    "肚":
+    [
+        {"simplified": "肚子", "english": "abdomen"}
+    ],
+    "昨":
+    [
+        {"simplified": "昨天", "english": "yesterday"}
+    ],
+    "头":
+    [
+        {"simplified": "头", "english": "head"}
+    ],
+    "疼":
+    [
+        {"simplified": "疼", "english": "painful"}
+    ],
+    "药":
+    [
+        {"simplified": "药店", "english": "pharmacy"},
+        {"simplified": "药", "english": "medicine"}
+    ],
+    "假":
+    [
+        {"simplified": "假", "english": "leave"}
+    ],
+    "下":
+    [
+        {"simplified": "下午", "english": "afternoon"},
+        {"simplified": "下", "english": "next"}
+    ],
+    "午":
+    [
+        {"simplified": "下午", "english": "afternoon"},
+        {"simplified": "上午", "english": "morning"}
+    ],
+    "开":
+    [
+        {"simplified": "开心", "english": "happy"}
+    ],
+    "来":
+    [
+        {"simplified": "来", "english": "come"}
+    ],
+    "束":
+    [
+        {"simplified": "束", "english": "bouquet"}
+    ],
+    "应":
+    [
+        {"simplified": "应该", "english": "should"}
+    ],
+    "该":
+    [
+        {"simplified": "应该", "english": "should"}
+    ],
+    "煮":
+    [
+        {"simplified": "煮", "english": "boil"}
+    ],
+    "体":
+    [
+        {"simplified": "体温", "english": "temperature"},
+        {"simplified": "体育馆", "english": "gymnasium"}
+    ],
+    "温":
+    [
+        {"simplified": "体温", "english": "temperature"}
+    ],
+    "少":
+    [
+        {"simplified": "少", "english": "less"}
+    ],
+    "请":
+    [
+        {"simplified": "邀请", "english": "invite"},
+        {"simplified": "请问", "english": "excuse me"},
+        {"simplified": "请进", "english": "please come in"}
+    ],
+    "礼":
+    [
+        {"simplified": "礼物", "english": "gift"}
+    ],
+    "饮":
+    [
+        {"simplified": "饮料", "english": "drink"}
+    ],
+    "料":
+    [
+        {"simplified": "饮料", "english": "drink"}
+    ],
+    "准":
+    [
+        {"simplified": "准备", "english": "prepare"}
+    ],
+    "备":
+    [
+        {"simplified": "准备", "english": "prepare"}
+    ],
+    "五":
+    [
+        {"simplified": "五", "english": "five"},
+        {"simplified": "五十", "english": "fifty"}
+    ],
+    "种":
+    [
+        {"simplified": "种", "english": "type"},
+        {"simplified": "种", "english": "kind"}
+    ],
+    "明":
+    [
+        {"simplified": "明天", "english": "tomorrow"},
+        {"simplified": "聪明", "english": "intelligent"}
+    ],
+    "告":
+    [
+        {"simplified": "告诉", "english": "tell"}
+    ],
+    "诉":
+    [
+        {"simplified": "告诉", "english": "tell"}
+    ],
+    "鱼":
+    [
+        {"simplified": "鱼", "english": "fish"}
+    ],
+    "片":
+    [
+        {"simplified": "薯片", "english": "chips"},
+        {"simplified": "照片", "english": "photo"},
+        {"simplified": "动画片", "english": "cartoon"}
+    ],
+    "围":
+    [
+        {"simplified": "围巾", "english": "a scarf"}
+    ],
+    "巾":
+    [
+        {"simplified": "围巾", "english": "a scarf"}
+    ],
+    "项":
+    [
+        {"simplified": "项链", "english": "necklace"}
+    ],
+    "校":
+    [
+        {"simplified": "学校", "english": "school"},
+        {"simplified": "校园", "english": "campus"}
+    ],
+    "旁":
+    [
+        {"simplified": "旁边", "english": "beside"}
+    ],
+    "边":
+    [
+        {"simplified": "旁边", "english": "beside"}
+    ],
+    "图":
+    [
+        {"simplified": "图书馆", "english": "library"}
+    ],
+    "问":
+    [
+        {"simplified": "请问", "english": "excuse me"}
+    ],
+    "外":
+    [
+        {"simplified": "外面", "english": "outside"},
+        {"simplified": "外地", "english": "out of town"}
+    ],
+    "参":
+    [
+        {"simplified": "参观", "english": "visit"},
+        {"simplified": "参加", "english": "participate"}
+    ],
+    "观":
+    [
+        {"simplified": "参观", "english": "visit"}
+    ],
+    "操":
+    [
+        {"simplified": "操场", "english": "playground"}
+    ],
+    "高":
+    [
+        {"simplified": "高", "english": "tall"}
+    ],
+    "后":
+    [
+        {"simplified": "后面", "english": "behind"},
+        {"simplified": "后天", "english": "the day after tomorrow"}
+    ],
+    "前":
+    [
+        {"simplified": "前面", "english": "front"},
+        {"simplified": "前", "english": "before"}
+    ],
+    "宿":
+    [
+        {"simplified": "宿舍", "english": "dormitory"}
+    ],
+    "舍":
+    [
+        {"simplified": "宿舍", "english": "dormitory"}
+    ],
+    "堂":
+    [
+        {"simplified": "食堂", "english": "cafeteria"}
+    ],
+    "停":
+    [
+        {"simplified": "停车场", "english": "parking lot"}
+    ],
+    "安":
+    [
+        {"simplified": "安静", "english": "quiet"}
+    ],
+    "静":
+    [
+        {"simplified": "安静", "english": "quiet"}
+    ],
+    "泳":
+    [
+        {"simplified": "游泳池", "english": "swimming pool"}
+    ],
+    "池":
+    [
+        {"simplified": "游泳池", "english": "swimming pool"}
+    ],
+    "活":
+    [
+        {"simplified": "活动", "english": "event"},
+        {"simplified": "生活", "english": "live"}
+    ],
+    "育":
+    [
+        {"simplified": "体育馆", "english": "gymnasium"}
+    ],
+    "进":
+    [
+        {"simplified": "请进", "english": "please come in"}
+    ],
+    "瓜":
+    [
+        {"simplified": "西瓜", "english": "watermelon"}
+    ],
+    "苹":
+    [
+        {"simplified": "苹果", "english": "apple"}
+    ],
+    "照":
+    [
+        {"simplified": "照片", "english": "photo"},
+        {"simplified": "护照", "english": "passport"}
+    ],
+    "聪":
+    [
+        {"simplified": "聪明", "english": "intelligent"}
+    ],
+    "猫":
+    [
+        {"simplified": "猫", "english": "cat"}
+    ],
+    "弟":
+    [
+        {"simplified": "弟弟", "english": "younger brother"}
+    ],
+    "鸡":
+    [
+        {"simplified": "鸡肉", "english": "chicken"}
+    ],
+    "玉":
+    [
+        {"simplified": "玉米", "english": "corn"}
+    ],
+    "鲜":
+    [
+        {"simplified": "新鲜", "english": "fresh"}
+    ],
+    "节":
+    [
+        {"simplified": "节", "english": "measure word for sessions"},
+        {"simplified": "节目", "english": "program"}
+    ],
+    "目":
+    [
+        {"simplified": "节目", "english": "program"}
+    ],
+    "歌":
+    [
+        {"simplified": "歌", "english": "song"},
+        {"simplified": "歌手", "english": "singer"}
+    ],
+    "海":
+    [
+        {"simplified": "上海", "english": "Shanghai"}
+    ],
+    "很":
+    [
+        {"simplified": "很多", "english": "a lot of"}
+    ],
+    "年":
+    [
+        {"simplified": "年", "english": "year"}
+    ],
+    "香":
+    [
+        {"simplified": "香港", "english": "Hong Kong"}
+    ],
+    "工":
+    [
+        {"simplified": "工作", "english": "job"}
+    ],
+    "作":
+    [
+        {"simplified": "工作", "english": "job"}
+    ],
+    "旅":
+    [
+        {"simplified": "旅行", "english": "travel"}
+    ],
+    "回":
+    [
+        {"simplified": "回", "english": "return"}
+    ],
+    "岁":
+    [
+        {"simplified": "岁", "english": "years old"}
+    ],
+    "画":
+    [
+        {"simplified": "动画片", "english": "cartoon"}
+    ],
+    "事":
+    [
+        {"simplified": "有事儿", "english": "busy"}
+    ],
+    "入":
+    [
+        {"simplified": "加入", "english": "join"}
+    ],
+    "复":
+    [
+        {"simplified": "复习", "english": "review"}
+    ],
+    "紧":
+    [
+        {"simplified": "紧张", "english": "nervous"}
+    ],
+    "张":
+    [
+        {"simplified": "紧张", "english": "nervous"}
+    ],
+    "油":
+    [
+        {"simplified": "加油", "english": "Keep it up"}
+    ],
+    "脸":
+    [
+        {"simplified": "脸", "english": "face"}
+    ],
+    "点":
+    [
+        {"simplified": "几点", "english": "what time"}
+    ],
+    "到":
+    [
+        {"simplified": "到", "english": "reach"},
+        {"simplified": "到", "english": "arrive"}
+    ],
+    "二":
+    [
+        {"simplified": "二", "english": "two"},
+        {"simplified": "十二", "english": "twelve"},
+        {"simplified": "二十", "english": "twenty"}
+    ],
+    "租":
+    [
+        {"simplified": "出租车", "english": "taxi"}
+    ],
+    "着":
+    [
+        {"simplified": "别着急", "english": "don't worry"}
+    ],
+    "急":
+    [
+        {"simplified": "别着急", "english": "don't worry"}
+    ],
+    "护":
+    [
+        {"simplified": "护照", "english": "passport"}
+    ],
+    "酒":
+    [
+        {"simplified": "酒店", "english": "hotel"}
+    ],
+    "约":
+    [
+        {"simplified": "纽约", "english": "New York"}
+    ]
+}
