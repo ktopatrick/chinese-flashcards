@@ -730,7 +730,12 @@
                     let speak = () => {
                         if ('speechSynthesis' in window) {
                             window.speechSynthesis.cancel();
-                            const utterance = new SpeechSynthesisUtterance(this.currentCharacter);
+
+                            const charData = this.charactersData[this.currentCharacter];
+                            const phrase = charData[this.audioIteration % charData.length].simplified;
+
+//                            const utterance = new SpeechSynthesisUtterance(this.currentCharacter);
+                            const utterance = new SpeechSynthesisUtterance(phrase);
                             let voices = window.speechSynthesis.getVoices();
                             voices = voices.filter(voice => voice.lang.startsWith('zh-CN'));
                             utterance.voice = voices[this.audioIteration%voices.length]
