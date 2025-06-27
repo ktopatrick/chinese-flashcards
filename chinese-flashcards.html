@@ -47,7 +47,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -56,7 +56,7 @@
             flex-direction: column;
             overflow-x: hidden;
         }
-        
+
         .container {
             flex: 1;
             display: flex;
@@ -64,7 +64,7 @@
             max-width: 100vw;
             width: 100%;
         }
-        
+
         .loading {
             display: flex;
             justify-content: center;
@@ -73,7 +73,7 @@
             color: white;
             font-size: 1.5rem;
         }
-        
+
         .character-section {
             height: 25vh;
             display: flex;
@@ -85,7 +85,7 @@
             border-radius: 20px;
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         }
-        
+
         .character-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -131,12 +131,25 @@
         }
 
         .options-section {
-            flex: 1;
+/*          flex: 1;
             padding: 20px;
             display: flex;
             flex-direction: column;
             gap: 15px;
             overflow-y: auto;
+*/
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .options-grid {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+            padding: 20px;
         }
 
         .option-button {
@@ -202,7 +215,7 @@
             margin-bottom: 10px;
             background: rgba(103, 126, 234, 0.1);
             border-radius: 10px;
-            font-size: 1rem;
+            font-size: 2rem;
             line-height: 1.4;
             color: #333;
             border-left: 4px solid #667eea;
@@ -263,7 +276,7 @@
 </head>
 <body>
     <div class="container">
-        <div id="loading" class="loading">
+        <div id="loading" class="loading hidden">
             Loading Chinese characters...
         </div>
 
@@ -305,10 +318,12 @@
             </div>
 
             <div id="optionsSection" class="options-section">
-                <button class="option-button" id="option1"></button>
-                <button class="option-button" id="option2"></button>
-                <button class="option-button" id="option3"></button>
-                <button class="option-button" id="option4"></button>
+                <div class="options-grid">
+                    <button class="option-button" id="option1"></button>
+                    <button class="option-button" id="option2"></button>
+                    <button class="option-button" id="option3"></button>
+                    <button class="option-button" id="option4"></button>
+                </div>
             </div>
 
             <div id="phrasesSection" class="phrases-section hidden">
@@ -320,9 +335,9 @@
     </div>
 
     <!-- External Libraries -->
-    <script src="lib/full.js"></script>
+    <script src="lib/opencc-full.js"></script>
     <script src="lib/hanzi-writer.js"></script>
-    <script src="lib/index.js"></script>
+    <script src="lib/pinyin-pro-index.js"></script>
 
     <!-- Optional: Include your character data here -->
     <!-- <script src="characters.js"></script> -->
@@ -465,9 +480,11 @@
                             data.traditional = traditionalMap[char] || char;
                         }
 
+                        var { pinyin } = pinyinPro;
+
                         // Convert to pinyin using PinyinPro or fallback
-                        if (typeof PinyinPro !== 'undefined') {
-                            data.pinyin = PinyinPro.pinyin(char, { toneType: 'symbol', type: 'array' })[0];
+                        if (typeof pinyinPro !== 'undefined') {
+                            data.pinyin = pinyin(char, { toneType: 'symbol', type: 'array' })[0];
                         } else {
                             // Fallback pinyin for demo
                             const pinyinMap = {
@@ -498,8 +515,8 @@
                                 phrase.traditional = phraseTradMap[phrase.simplified] || phrase.simplified;
                             }
 
-                            if (typeof PinyinPro !== 'undefined') {
-                                phrase.pinyin = PinyinPro.pinyin(phrase.simplified, { toneType: 'symbol' });
+                            if (typeof pinyinPro !== 'undefined') {
+                                phrase.pinyin = pinyin(phrase.simplified, { toneType: 'symbol' });
                             } else {
                                 // Fallback for demo
                                 const phrasePinyinMap = {
@@ -616,7 +633,7 @@
                     container.innerHTML = `<div style="font-size: 48px; color: #333;">${char}</div>`;
                 }
             }
-            
+
             clearHanziWriters() {
                 this.hanziWriters.forEach(writer => {
                     try {
@@ -629,11 +646,11 @@
                 });
                 this.hanziWriters = [];
             }
-            
+
             generatePinyinOptions() {
                 const options = [this.correctPinyin];
                 const availablePinyin = this.allPinyinOptions.filter(p => p !== this.correctPinyin);
-                
+
                 // Add 3 random incorrect options
                 while (options.length < 4 && availablePinyin.length > 0) {
                     const randomIndex = Math.floor(Math.random() * availablePinyin.length);
@@ -643,30 +660,30 @@
                     }
                     availablePinyin.splice(randomIndex, 1);
                 }
-                
+
                 // Shuffle options
                 for (let i = options.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
                     [options[i], options[j]] = [options[j], options[i]];
                 }
-                
+
                 // Display options
                 options.forEach((option, index) => {
                     document.getElementById(`option${index + 1}`).textContent = option;
                 });
             }
-            
+
             handleOptionClick(optionIndex) {
                 const selectedOption = document.getElementById(`option${optionIndex + 1}`);
                 const selectedPinyin = selectedOption.textContent;
-                
+
                 if (selectedPinyin === this.correctPinyin) {
                     this.handleCorrectAnswer(selectedOption);
                 } else {
                     this.handleIncorrectAnswer(selectedOption);
                 }
             }
-            
+
             handleCorrectAnswer(button) {
                 button.classList.add('correct');
                 // Start audio pronunciation
@@ -678,33 +695,33 @@
 
                 this.showPhrases();
             }
-            
+
             handleIncorrectAnswer(button) {
                 button.classList.add('incorrect');
                 button.disabled = true;
             }
-            
+
             showPhrases() {
                 this.isShowingPhrases = true;
                 const charData = this.charactersData[this.currentCharacter];
                 const phrasesList = document.getElementById('phrasesList');
-                
+
                 phrasesList.innerHTML = '';
-                
+
                 charData.forEach(phrase => {
                     const phraseDiv = document.createElement('div');
                     phraseDiv.className = 'phrase-item';
                     phraseDiv.innerHTML = `
-                        <strong>${phrase.simplified}</strong> | <strong>${phrase.traditional}</strong> | 
+                        <strong>${phrase.simplified}</strong> | <strong>${phrase.traditional}</strong> |
                         ${phrase.pinyin} | ${phrase.english}
                     `;
                     phrasesList.appendChild(phraseDiv);
                 });
-                
+
                 //document.getElementById('optionsSection').classList.add('hidden');
                 document.getElementById('phrasesSection').classList.remove('hidden');
             }
-            
+
             startAudioLoop() {
                 if (this.audioButton.checked) {
                     this.stopSpeech();
@@ -728,29 +745,29 @@
                     speak();
                 }
             }
-            
+
             stopSpeech() {
                 if (this.currentSpeechTimeout) {
                     clearTimeout(this.currentSpeechTimeout);
                     this.currentSpeechTimeout = null;
                 }
-                
+
                 if (this.speechSynthesis) {
                     this.speechSynthesis.cancel();
                 }
             }
-            
+
             hideLoading() {
                 document.getElementById('loading').classList.add('hidden');
                 document.getElementById('app').classList.remove('hidden');
             }
-            
+
             showError() {
                 document.getElementById('loading').classList.add('hidden');
                 document.getElementById('error').classList.remove('hidden');
             }
         }
-        
+
         // Initialize the app when the page loads
         window.addEventListener('load', () => {
             new ChineseFlashcardApp();
