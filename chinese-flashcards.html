@@ -301,11 +301,15 @@
                     <span>Day: <span id="currentDay">1</span></span>
                 </div>
                 <label>
-                    <input id="audioEnabled" type="checkbox" checked="true">
                     Audio
+                    <input id="audioEnabled" type="checkbox" checked="true">
+                    Voice
+                    <select id="voiceSelect">
+                        <option value="Rotate" selected>Rotate</option>
+                    </select>
                 </label>
                 <div>
-                    <span>Pool: <span id="poolSize">5</span> characters</span>
+                    <span>Pool: <span id="poolSize">5</span></span>
                     <select id="charactersInPool">
                         <option value="" selected></option>
                     </select>
@@ -368,7 +372,6 @@
                 this.currentPool = [];
                 this.currentCharacter = null;
                 this.correctPinyin = '';
-                this.startDate = new Date(document.querySelector('#startDate').value);
                 this.audioButton = document.querySelector('#audioEnabled');
                 this.speechSynthesis = window.speechSynthesis;
                 this.currentSpeechTimeout = null;
@@ -383,8 +386,7 @@
                     await this.loadCharacters();
                     await this.processCharacters();
                     this.setupEventListeners();
-                    this.updatePoolSize();
-                    this.startNewRound();
+                    this.start();
                     this.hideLoading();
                 } catch (error) {
                     console.error('Initialization failed:', error);
@@ -558,9 +560,14 @@
                 }
             }
 
+            start() {
+                this.updatePoolSize();
+                this.startNewRound();
+            }
+
             updatePoolSize() {
                 const currentDate = new Date();
-                const daysDiff = Math.floor((currentDate - this.startDate) / (1000 * 60 * 60 * 24));
+                const daysDiff = Math.floor((currentDate - new Date(document.querySelector('#startDate').value)) / (1000 * 60 * 60 * 24));
                 const poolSize = Math.min(5 + (daysDiff * 2), Object.keys(this.charactersData).length);
 
                 this.currentPool = Object.keys(this.charactersData).slice(0, poolSize);
@@ -578,6 +585,9 @@
             }
 
             setupEventListeners() {
+                const startDate = document.querySelector('#startDate');
+                startDate.addEventListener('change', () => this.start())
+
                 const options = document.querySelectorAll('.option-button');
                 options.forEach((option, index) => {
                     option.addEventListener('click', () => this.handleOptionClick(index));
