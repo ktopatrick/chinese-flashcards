@@ -593,6 +593,9 @@
                 this.roundCount = 1;
                 this.correctCount = 0;
                 this.incorrectCount = 0;
+                this.currentPool = [];
+                document.querySelector('#correctCount').textContent = this.correctCount;
+                document.querySelector('#incorrectCount').textContent = this.inCorrectCount;
                 this.updatePoolSize();
                 this.startNewRound();
             }
