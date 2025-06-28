@@ -291,6 +291,14 @@
             text-align: center;
         }
 
+        #correctCount {
+            color: #4CAF50;
+        }
+
+        #incorrectCount {
+            color: #f44336;
+        }
+
         .hidden {
             display: none;
         }
@@ -320,8 +328,10 @@
                     <div>Voice <select id="voiceSelector"></select></div>
                 </div>
                 <div class="menu-item">
-                    <span><span id="characterCount">1</span>/<span id="poolSize">5</span></span>
-                    <span id="totalCount">1</span>
+                    <span><span id="characterCount">1</span> / <span id="poolSize">5</span> / <span id="totalCount">1</span></span>
+                    <div>
+                        <span id="correctCount">0</span> / <span id="incorrectCount">0</span>
+                    </div>
                     <select id="charactersInPool">
                         <option value="" selected></option>
                     </select>
@@ -578,6 +588,8 @@
 
             start() {
                 this.roundCount = 1;
+                this.correctCount = 0;
+                this.incorrectCount = 0;
                 this.updatePoolSize();
                 this.startNewRound();
             }
@@ -750,6 +762,9 @@
             }
 
             handleCorrectAnswer(button) {
+                this.correctCount++;
+                document.querySelector('#correctCount').textContent = this.correctCount;
+
                 button.classList.add('correct');
                 // Start audio pronunciation
                 this.startAudioLoop();
@@ -762,6 +777,9 @@
             }
 
             handleIncorrectAnswer(button) {
+                this.incorrectCount++;
+                document.querySelector('#incorrectCount').textContent = this.incorrectCount;
+
                 button.classList.add('incorrect');
                 button.disabled = true;
             }
