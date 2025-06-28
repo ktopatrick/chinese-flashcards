@@ -37,6 +37,10 @@
 //     - characters will need to be copied/paste to google translate to get the traditional character.
 -->
 
+<!--TODO
+- Highlight the phrase that's being spoken.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -240,7 +244,7 @@
         .continue-hint {
             text-align: center;
             padding-top: 10px;/*20px;*/
-            color: rgba(10, 10, 10, 0.8);
+            color: rgba(25, 25, 25, 0.5);/*rgba(255, 255, 255, 0.8);
             font-size: 1rem;
             /*animation: fadeInOut 2s infinite;*/
         }
@@ -312,6 +316,7 @@
                 </div>
                 <div class="menu-item">
                     <div>Audio <input id="audioEnabled" type="checkbox" checked="true"></div>
+                    <div>Phrases <input id="phrasesEnabled" type="checkbox"></div>
                     <div>Voice <select id="voiceSelector"></select></div>
                 </div>
                 <div class="menu-item">
@@ -382,6 +387,7 @@
                 this.currentCharacter = null;
                 this.correctPinyin = '';
                 this.audioButton = document.querySelector('#audioEnabled');
+                this.phrasesButton = document.querySelector('#phrasesEnabled');
                 this.speechSynthesis = window.speechSynthesis;
                 this.currentSpeechTimeout = null;
                 this.hanziWriters = [];
@@ -779,6 +785,8 @@
 
                 //document.getElementById('optionsSection').classList.add('hidden');
                 document.getElementById('phrasesSection').classList.remove('hidden');
+
+                phrasesList.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
 
             setupSpeechOptions() {
@@ -839,8 +847,13 @@
                                 }
                             }
 
-//                            const utterance = new SpeechSynthesisUtterance(this.currentCharacter);
-                            const utterance = new SpeechSynthesisUtterance(phrase);
+                            let utterance;
+                            if (this.phrasesButton.checked) {
+                                utterance = new SpeechSynthesisUtterance(phrase);
+                            } else {
+                                utterance = new SpeechSynthesisUtterance(this.currentCharacter);
+                            }
+
                             utterance.voice = voice;
                             utterance.lang = 'zh-CN';
                             utterance.rate = 0.5;
