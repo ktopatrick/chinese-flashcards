@@ -38,7 +38,6 @@
 -->
 
 <!--TODO
-- Highlight the phrase that's being spoken.
 -->
 
 <!DOCTYPE html>
@@ -239,6 +238,10 @@
 
         .phrase-item:last-child {
             margin-bottom: 0;
+        }
+
+        .current-audio {
+            background-color: rgba(103, 126, 234, 0.5);
         }
 
         .continue-hint {
@@ -766,14 +769,15 @@
                 document.querySelector('#correctCount').textContent = this.correctCount;
 
                 button.classList.add('correct');
-                // Start audio pronunciation
-                this.startAudioLoop();
 
                 // Disable all buttons
                 const options = document.querySelectorAll('.option-button');
                 options.forEach(option => option.disabled = true);
 
                 this.showPhrases();
+
+                // Start audio pronunciation
+                this.startAudioLoop();
             }
 
             handleIncorrectAnswer(button) {
@@ -867,6 +871,10 @@
 
                             let utterance;
                             if (this.phrasesButton.checked) {
+                                const phrasesList = document.getElementById('phrasesList').querySelectorAll('div.phrase-item');
+                                phrasesList.forEach(e => e.classList.remove('current-audio'));
+                                phrasesList[this.audioIteration%phrasesList.length].classList.add('current-audio');
+
                                 utterance = new SpeechSynthesisUtterance(phrase);
                             } else {
                                 utterance = new SpeechSynthesisUtterance(this.currentCharacter);
@@ -875,9 +883,9 @@
                             utterance.voice = voice;
                             utterance.lang = 'zh-CN';
                             utterance.rate = 0.5;
-                            this.audioIteration++;
                             this.speechSynthesis.speak(utterance);
                             this.currentSpeechTimeout = setTimeout(speak, 2000);
+                            this.audioIteration++;
                         }
                     };
 
