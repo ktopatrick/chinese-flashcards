@@ -397,6 +397,7 @@
                 this.pool = [];
                 this.currentPool = [];
                 this.currentRound = [];
+                this.currentRoundCounted = false;
                 this.currentCharacter = null;
                 this.correctPinyin = '';
                 this.audioButton = document.querySelector('#audioEnabled');
@@ -639,6 +640,7 @@
 
             startNewRound() {
                 this.isShowingPhrases = false;
+                this.currentRoundCounted = false;
                 this.stopSpeech();
                 this.clearHanziWriters();
 
@@ -768,8 +770,11 @@
             }
 
             handleCorrectAnswer(button) {
-                this.correctCount++;
-                document.querySelector('#correctCount').textContent = this.correctCount;
+                if (!this.currentRoundCounted) {
+                    this.currentRoundCounted = true;
+                    this.correctCount++;
+                    document.querySelector('#correctCount').textContent = this.correctCount;
+                }
 
                 button.classList.add('correct');
 
@@ -784,8 +789,11 @@
             }
 
             handleIncorrectAnswer(button) {
-                this.incorrectCount++;
-                document.querySelector('#incorrectCount').textContent = this.incorrectCount;
+                if (!this.currentRoundCounted) {
+                    this.currentRoundCounted = true;
+                    this.incorrectCount++;
+                    document.querySelector('#incorrectCount').textContent = this.incorrectCount;
+                }
 
                 button.classList.add('incorrect');
                 button.disabled = true;
