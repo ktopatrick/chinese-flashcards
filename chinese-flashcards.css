@@ -111,18 +111,18 @@ body {
 .options-grid {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
     width: 100%;
     max-width: 400px;
     height: 100%;
-    padding: 1px;
+    padding: 10px;
 }
 
 .option-button {
     background: rgba(255, 255, 255, 0.95);
     border: none;
     padding: 15px;
-    border-radius: 15px;
+    border-radius: 10px;
     font-size: 1.2rem;
     font-weight: 600;
     color: #333;
