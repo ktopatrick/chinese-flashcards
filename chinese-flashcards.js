@@ -234,6 +234,15 @@ class ChineseFlashcardApp {
         const startDate = document.querySelector('#startDate');
         startDate.addEventListener('change', () => this.start())
 
+        const audio = document.querySelector('#audioEnabled');
+        audio.addEventListener('click', () => {
+            if (audio.checked) {
+                this.startAudioLoop();
+            } else {
+                this.stopSpeech();
+            }
+        });
+
         const options = document.querySelectorAll('.option-button');
         options.forEach((option, index) => {
             option.addEventListener('click', () => this.handleOptionClick(index));
@@ -453,11 +462,17 @@ class ChineseFlashcardApp {
                 // }
 
                 voiceSelector.appendChild(option);
-                // Tingting is the best one that I've heard so far, and it's on both Chrome on MacOS and
-                // Safari on iOS.
+                // Tingting is the best one that I've heard so far, and it's on both Chrome on MacOS and Safari on iOS.
+                // Yu-Shu is on Chrome and that is better than the Tingting actually. Note, this doesn't work correctly
+                // because we can't break out of a forEach loop. It works only because Y comes after T so that will be
+                // set last.
+                if (voice.name.includes('Yu-shu')) {
+                    voiceSelector.value = option.textContent;
+                }
                 if (voice.name.includes('Tingting')) {
                     voiceSelector.value = option.textContent;
                 }
+
             });
         } else {
             // Add "No speech synthesis" option, disabled.
